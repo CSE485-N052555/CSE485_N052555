@@ -1,0 +1,186 @@
+.bartop{
+    border-bottom: 3px solid red;
+   width: auto;
+}
+
+.bar{
+   width:100% ;
+   height:100px ;
+   background-color: white;
+  border: 1px solid black;
+  margin-top: -20px;
+}
+
+.style{
+padding-top: 15px;
+
+}
+
+.styleproduct{
+  
+    position: relative;
+   
+  
+}
+
+.kc
+{
+    padding: 10px 0px;
+}
+.contentbarright{
+   margin-right: 20px;
+}
+.contentbarleft{
+margin-left: 20px;
+}
+.styleproduct .thumbnail img{
+width:280px ;
+height: 280px;
+}
+.footer{
+    background: #2a2d34;
+    color: white;
+}
+.demo{
+    height: 100px;
+    margin-bottom: 15px;
+}
+.thumbnail{
+    position: relative;
+}
+
+.stylefooter{
+    border-top: 2px solid #5486A8;
+}
+.carousel-caption h1,p{
+    color: black;
+}
+.banner{
+    margin-top: -20px;
+}
+ .logonew{
+     position: absolute;
+     top: 10px;
+right: 10px;
+transform: rotate(45deg);
+ }
+.anhlogo{
+    height: 80px;
+    width: 180px;
+    margin-left: 10px;
+}
+.text-nav{
+    padding-top: 20px;
+}
+.sub{
+    display: block;
+}
+.hove>a>img{
+    transition: all 1s ease;
+-webkit-transition: all 1s ease;
+-moz-transition: all 1s ease;
+-o-transition: all 1s ease;
+overflow: hidden;
+
+}
+.hove>a>img:hover{
+    border: 2px solid salmon;
+    cursor: pointer;
+   transform: scale(1.1,1.1);
+-webkit-transform: scale(1.1,1.1);
+-moz-transform: scale(1.1,1.1);
+-o-transform: scale(1.1,1.1);
+-ms-transform: scale(1.1,1.1);
+
+}
+.chon{
+    margin-top: 30px;
+}
+.soluong{
+    width: 40px;
+}
+.them{
+    margin-top: 30px;
+    
+}
+
+.demo{
+    width: 100%;
+    height: auto;
+}
+.demo{
+    
+    position: absolute;
+    top: 100%;
+    background-color: #5486A8;
+ 
+    
+}
+.wrap-modal1 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9000;
+    overflow: auto;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    visibility: hidden;
+    opacity: 0;
+    background-color: white;
+   
+  }
+  
+  .overlay-modal1 {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #2a2d34;
+    opacity: 0.5;
+  }
+.show-modal1 {
+    visibility: visible;
+    opacity: 1;
+    
+  }
+.bg0{
+      background-color: white;
+    margin-top: 50px;
+    border:  2px solid salmon;
+  }
+#thoat:hover{
+      color: red;
+}
+ .pannelproduct
+ {
+     margin-top: 15px;
+ }
+.buttongiohang:hover{
+    cursor: pointer;
+    color: chartreuse;
+    background-color: #F0B27A;
+    transition: all 0.5s ease;
+}
+.buttongiohang{
+    width: 60px;
+    height: 35px;
+    border-radius: 10%;
+    background-color: #F2F3F4;
+    color: salmon;
+    font-size: 20px;
+    text-align: center;
+    margin-right: 10px;
+    margin-top: 8px;
+    padding-top: -5px;
+}
+.img-fluid{
+    border: 2px solid salmon;
+}
+
+
