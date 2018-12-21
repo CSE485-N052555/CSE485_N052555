@@ -12,8 +12,7 @@ foreach ($kq as $value) {
         'chitiet' => $value['chitiet'],
         'gia' => $value['gia'],
         'hot' => $value['hot'],
-        'new' => $value['new'],
-        'theomua' => $value['theomua']
+        'new' => $value['new']
 
     );
 }

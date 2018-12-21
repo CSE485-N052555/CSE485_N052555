@@ -19,16 +19,22 @@ $(document).ready(function() {
                         result ++;
                     }
                 }
-        $('#exampleModal1').on('show.bs.modal', function (e) {
+          $('#exampleModal1').on('show.bs.modal', function (e) {
+
+            if(result==0)
+            {
+                alert("Bạn Phải Chọn 1 Sản Phẩm!!!");
+                e.preventDefault();
+                location.reload();
+            }
             if(result>1)
             {
-            alert("Bạn Chỉ Được Chọn 1 Sản Phẩm");
-                 e.preventDefault();
+                e.preventDefault();
+                alert("Bạn Chỉ Được Chọn 1 Sản Phẩm!!!");
+                location.reload();
             }
-            else
-            {
-            $('#exampleModal1').modal('show'); 
-            }
+           
+            
           });
           
         

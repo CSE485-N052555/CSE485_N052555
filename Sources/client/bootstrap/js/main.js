@@ -33,7 +33,7 @@ $('.muangay').click(function(){
        $('#ten').text(data[0].ten);
        $('#gia').text(data[0].gia);
        $('#chitiet').text(data[0].chitiet);
-       $('.imgproduct').attr('src',"../img/"+data[0].img+".jpg");
+       $('.imgproduct').attr('src',"../img/"+data[0].img);
        $('.link').attr('id',dataid);
         },
         type: 'GET'

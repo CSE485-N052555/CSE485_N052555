@@ -32,17 +32,17 @@ $db=new Database;
           $mah=$_SESSION['card'][$key]['id'];
           $tenhang=$_SESSION['card'][$key]['name'];
           $soluong=$_SESSION['card'][$key]['sl'];
+          $size=$_SESSION['card'][$key]['size'];
+          $color=$_SESSION['card'][$key]['color'];
           $dongia=$_SESSION['card'][$key]['gia'];
           $thanhtien=$_SESSION['card'][$key]['thanhtien'];
-          $db->themcthoadon($mahd,$mah,$tenhang,$soluong,$dongia,$thanhtien);
+          $db->themcthoadon($mahd,$mah,$tenhang,$soluong,$size,$color,$dongia,$thanhtien);
         }
         unset($_SESSION['card']);
-        header('Location:giohang.php');
+        echo("success");
        }
      }
    }
-  
-
-
-
 ?>
+
+

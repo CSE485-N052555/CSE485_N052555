@@ -16,8 +16,8 @@ if(empty($_GET['tk']))
     echo(' <h1>Không Có Kết Quả Nào Phù Hợp!</h1>');
 }
 else {
-    $sql="select * from product where name like '%".$_GET['tk']."%' limit ".$from.",8";
-    $sql2="select * from product where name like '%".$_GET['tk']."%'";
+  $sql="select * from product  join loaisp on product.idloaisp=loaisp.id_loaisp where name like '%".$_GET['tk']."%' or loaisp.loaisp like '%".$_GET['tk']."%'   limit ".$from.",8";
+  $sql2="select * from product  join loaisp on product.idloaisp=loaisp.id_loaisp where name like '%".$_GET['tk']."%' or loaisp.loaisp like '%".$_GET['tk']."%'";
     $kq=$db->exec_sql($sql); 
     $st=count($db->exec_sql($sql2))/8; 
    if(!is_int($st))
@@ -44,7 +44,7 @@ else {
                  <?php  foreach ($kq as $value) :?>
                <div class="col-xs-12 col-sm-12 col-md-3 styleproduct">
                 <div class="thumbnail hove ">
-                   <a href="product.php?id=<?php echo($value['id']) ?>"><img src="../img/<?php echo($value['img']) ?>.jpg" idproduct="<?php echo($value['id']) ?>"></a>
+                   <a href="product.php?id=<?php echo($value['id']) ?>"><img src="../img/<?php echo($value['img']) ?>" idproduct="<?php echo($value['id']) ?>"></a>
                         <div class="caption text-center">
                            <h3> <?php echo($value['name']) ?></h3>
                            <p>

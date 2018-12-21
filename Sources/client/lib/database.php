@@ -26,9 +26,9 @@ $stmt= $this->con->prepare($sql4);
 $stmt->execute();
 }
 
-function themcthoadon($mahd,$mah,$tenhang,$soluong,$dongia,$thanhtien)
+function themcthoadon($mahd,$mah,$tenhang,$soluong,$size,$color,$dongia,$thanhtien)
 {
-   $sql5="INSERT INTO `chitiethoadon` (`mahd`, `mah`, `tenhang`,`soluong`, `dongia`, `thanhtien` ) VALUES ('$mahd','$mah','$tenhang','$soluong','$dongia','$thanhtien')";
+   $sql5="INSERT INTO `chitiethoadon` (`mahd`, `mah`, `tenhang`,`soluong`,`size`,`color`, `dongia`, `thanhtien` ) VALUES ('$mahd','$mah','$tenhang','$soluong','$size','$color','$dongia','$thanhtien')";
    $stmt= $this->con->prepare($sql5);
    $stmt->execute();
 }

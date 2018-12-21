@@ -14,7 +14,7 @@ $lq=$db->exec_sql($sql2);
      
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <img src="../img/<?php echo($kq[0]['img']);?>.jpg" alt="" width="100%">
+                <img src="../img/<?php echo($kq[0]['img']);?>" alt="" width="100%">
             </div>
             
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -72,7 +72,7 @@ $lq=$db->exec_sql($sql2);
 <?php  foreach ($lq as $value) :?>
   <div class="col-md-3 col-sm-4 col-xs-6" style="padding-bottom:10px">
     <a href="?id=<?php echo($value['id']);?>">
-      <img class="img-fluid" src="../img/<?php echo($value['img']);?>.jpg" alt="" width="250px" height="150px"  >
+      <img class="img-fluid" src="../img/<?php echo($value['img']);?>" alt="" width="250px" height="150px"  >
     </a>
   </div>
   <?php endforeach?>

@@ -20,7 +20,7 @@ require('../layout/header.php');
                  <?php  foreach ($kq as $value) :?>
                <div class="col-xs-12 col-sm-12 col-md-3 styleproduct">
                 <div class="thumbnail hove ">
-                   <a href="product.php?id=<?php echo($value['id']) ?>"><img src="../img/<?php echo($value['img']) ?>.jpg" idproduct="<?php echo($value['id']) ?>"></a>
+                   <a href="product.php?id=<?php echo($value['id']) ?>"><img src="../img/<?php echo($value['img']) ?>" idproduct="<?php echo($value['id']) ?>"></a>
                         <div class="caption text-center">
                            <h3> <?php echo($value['name']) ?></h3>
                            <p>
@@ -48,7 +48,7 @@ require('../layout/header.php');
                  <?php  foreach ($hot as $value) :?>
                <div class="col-xs-12 col-sm-12 col-md-3 styleproduct">
                    <div class="thumbnail hove ">
-                       <a href="product.php?id=<?php echo($value['id']) ?>"><img src="../img/<?php echo($value['img']) ?>.jpg" idproduct="<?php echo($value['id']) ?>"></a>
+                       <a href="product.php?id=<?php echo($value['id']) ?>"><img src="../img/<?php echo($value['img']) ?>" idproduct="<?php echo($value['id']) ?>"></a>
                      
                         <div class="caption text-center">
                            <h3> <?php echo($value['name']) ?></h3>

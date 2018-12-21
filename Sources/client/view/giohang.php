@@ -67,7 +67,7 @@ if(isset($_SESSION['card']))
                         <tr> 
                          <td data-th="Product"> 
                           <div class="row"> 
-                           <div class="col-sm-2"><img src="../img/<?php echo($_SESSION['card'][$key]['img']);?>.jpg"  class="img-responsive" width="100">
+                           <div class="col-sm-2"><img src="../img/<?php echo($_SESSION['card'][$key]['img']);?>"  class="img-responsive" width="100">
                            </div> 
                            <div class="col-sm-10 hidden-xs" > 
                             <h4 class="nomargin"><?php echo($_SESSION['card'][$key]['name']); ?></h4> 
