@@ -4,6 +4,7 @@ include_once('../lib/database.php');
 $db=new Database;
 $sql="select * from danhmuc";
 $kq=$db->exec_sql($sql);
+$loaisp=$db->exec_sql($sql2);
 ?>
    <div id="content-wrapper">
 

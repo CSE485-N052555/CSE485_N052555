@@ -1,21 +1,37 @@
 <?php
 require_once('database.php');
 $db=new Database;
-$hot=isset($_GET['hot'])? $hot:0;
-$new=isset($_GET['new'])? $new:0;
-if(isset($_GET['tensp'],$_GET['gia'],$_GET['chitiet'],$_GET['idloaisp'],$_GET['img']))
+$hot=0;
+$new=0;
+if(isset($_POST['hot']))
 {
-if(!empty($_GET['tensp']&$_GET['gia']&$_GET['chitiet']&$_GET['idloaisp']&$_GET['img']))
+    $hot=$_POST['hot'];
+}
+if(isset($_POST['new']))
 {
-$tensp=$_GET['tensp'];
-$gia=$_GET['gia'];
-$img=$_GET['img'];
-$chitiet=$_GET['chitiet'];
-$idloaisp=$_GET['idloaisp'];
-$move="C:\xampp\htdocs\BTL01\client\img";
-move_uploaded_file($_FILES["img"]["tmp_name"],$move);
-// $sql="INSERT INTO `product` (`id`, `name`, `gia`, `img`, `chitiet`, `hot`, `new`, `idloaisp`, `create_at`, `update_at`) VALUES (NULL, '$tensp', '$gia', '$img', '$chitiet', '$hot', '$new', '$idloaisp', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
-// $db->exec_sql($sql);
+    $new=$_POST['new'];
+}
+
+if(isset($_POST['tensp'],$_POST['gia'],$_POST['chitiet'],$_POST['idloaisp']))
+{
+$tensp=$_POST['tensp'];
+$gia=$_POST['gia'];
+$chitiet=$_POST['chitiet'];
+$idloaisp=$_POST['idloaisp'];
+if(!empty($idloaisp&$chitiet&$gia&$tensp))
+{
+$filename=$_FILES['img']['name'];
+$move="../../client/img/".$filename;
+if(move_uploaded_file($_FILES['img']['tmp_name'],$move))
+{
+$sql="INSERT INTO `product` (`id`, `name`, `gia`, `img`, `chitiet`, `hot`, `new`, `idloaisp`, `create_at`, `update_at`) VALUES (NULL, '$tensp', '$gia', '$filename', '$chitiet', '$hot', '$new', '$idloaisp', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
+$db->exec_sql($sql);
+header('Location: ../view/themsanpham.php');
+}
+else
+{
+    echo("Xuất Hiện Lỗi Khi Upload Ảnh".$_FILES['img']['error']);
+}
 }
 }
 

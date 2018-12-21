@@ -34,8 +34,6 @@ $loaisp=$db->exec_sql($sql2);
               <th  width="20%">Chi Tiết</th>
               <th width="5%">Hot</th>
               <th width="5%">New</th>
-              <th  width="5%">ID Loại</th>
-              <th width="10%"> Ngày Tạo</th>
              
              
             </tr>
@@ -48,17 +46,34 @@ $loaisp=$db->exec_sql($sql2);
           <tbody>
             <tr class="">
             <?php  foreach ($kq as $value) :?>
-              <td ><input type="checkbox"    name="check"></td>
+              <td ><input type="checkbox"  value="<?php echo($value['id']);?>"  name="check"></td>
               <td><?php echo($value['id']);?></td>
               <td><?php echo($value['name']);?></td>
-              <td><?php echo($value['img']);?></td>
+              <td><img src="../../client/img/<?php echo($value['img']);?>" width="200px"></td>
               <td><?php echo($value['gia']);?></td>
               <td><?php echo($value['chitiet']);?></td>
-              <td><?php echo($value['hot']);?></td>
-              <td><?php echo($value['new']);?></td>
-              <td><?php echo($value['idloaisp']);?></td>
-              <td><?php echo($value['create_at']);?></td>
+              <td><?php if($value['hot']==1)
+              {
+               echo('<button type="button" class="btn btn-outline-danger">Hot</button');
+              }
               
+              else{
+                echo('<button type="button" class="btn btn-outline-secondary">No Hot</button>');
+              }
+              
+              ?></td>
+              <td><?php 
+              if($value['new']==1)
+              {
+                echo('<button type="button" class="btn btn-outline-primary">New</button');
+
+              }
+              else{
+                echo('<button type="button" class="btn btn-outline-dark">No New</button>');
+              }
+              
+              
+              ?></td> 
             </tr>
             <?php endforeach?>
           </tbody>
