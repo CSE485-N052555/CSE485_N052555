@@ -45,9 +45,7 @@ height: 280px;
     height: 100px;
     margin-bottom: 15px;
 }
-.thumbnail{
-    position: relative;
-}
+
 
 .stylefooter{
     border-top: 2px solid #5486A8;
@@ -75,23 +73,74 @@ transform: rotate(45deg);
 .sub{
     display: block;
 }
-.hove>a>img{
-    transition: all 1s ease;
--webkit-transition: all 1s ease;
--moz-transition: all 1s ease;
--o-transition: all 1s ease;
-overflow: hidden;
+.hove{
+    overflow: hidden;
+    position: relative;
+}
+.hove img:hover{
+  transform: scale(1.05);
+}
+.ct{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    float: left;
+}
+
+.ct ul{
+    position: absolute;
+    margin: 0;
+    top: 0;
+    left: 0;
+    padding-left: 5px;
+    padding-top: 5px;
+   
+}
+.ct ul li{
+    list-style: none;
+    background-color: rgb(255, 255, 255);
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid rgb(0,0,0,.1);
+    transform: perspective(1000px) rotateY(90deg);
+    transform-origin: left;
+    transition: .5s;
 
 }
-.hove>a>img:hover{
-    border: 2px solid salmon;
-    cursor: pointer;
-   transform: scale(1.1,1.1);
--webkit-transform: scale(1.1,1.1);
--moz-transform: scale(1.1,1.1);
--o-transform: scale(1.1,1.1);
--ms-transform: scale(1.1,1.1);
+.ct ul a:nth-child(1)
+{
+    color:  hsl(15, 100%, 50%);
+    font-size: 20px;
+}
+.ct ul a:nth-child(2)
+{
+    color: hsl(0, 0%, 65%);
+    font-size: 20px;
+}
 
+.ct ul a:nth-child(3)
+{
+    color:  hsl(0, 0%, 15%);
+    font-size: 20px;
+}
+
+
+.styleproduct:hover .ct ul li {
+    transform: perspective(1000px) rotateY(0deg);
+}
+.styleproduct:hover .ct ul li:nth-child(1)
+{
+    transition-delay: .3s;
+}
+.styleproduct:hover .ct ul li:nth-child(2)
+{
+    transition-delay: .6s;
+}
+.styleproduct:hover .ct ul li:nth-child(3)
+{
+    transition-delay: .9s;
 }
 .chon{
     margin-top: 30px;

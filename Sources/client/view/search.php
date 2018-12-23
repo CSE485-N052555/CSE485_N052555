@@ -42,23 +42,25 @@ else {
        </div>
              <div class="row">
                  <?php  foreach ($kq as $value) :?>
-               <div class="col-xs-12 col-sm-12 col-md-3 styleproduct">
-                <div class="thumbnail hove ">
+                <div class="col-xs-6 col-sm-12 col-md-3 styleproduct">
+                <div class="thumbnail hove">
                    <a href="product.php?id=<?php echo($value['id']) ?>"><img src="../img/<?php echo($value['img']) ?>" idproduct="<?php echo($value['id']) ?>"></a>
                         <div class="caption text-center">
-                           <h3> <?php echo($value['name']) ?></h3>
+                          <h6></h6> <?php echo($value['name']) ?></h6> 
                            <p>
                            <?php echo($value['gia']) ?>
                            </p>
-                           <p>
-                           <a href="#" class="btn btn-danger muangay " data-id="<?php echo($value['id']) ?>" >Mua Ngay</a>  
-                           </p>
-                       </div>
-                   </div>
-                   <div class="logonew">
-                    <img src="../img/logonew.PNG" alt="" width="80px" height="50px">
-                   </div>
-               </div>
+                         </div> 
+                         
+                       </div> 
+                       <div class="ct">
+                      <ul style="padding-left: 20px;">
+                    <a href=""><li > <i class="fas fa-shopping-cart"></i></li></a>
+                     <a href="product.php?id=<?php echo($value['id']);?>"><li><i class="fas fa-eye"></i></li></a>
+                   <a href=""><li><i class="far fa-heart"></i></li></a>
+                      </ul>
+                     </div>  
+                 </div>
                <?php endforeach?>
           </div>
     <nav aria-label="Page navigation" style="float:right">

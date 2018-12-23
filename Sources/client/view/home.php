@@ -26,10 +26,15 @@ require('../layout/header.php');
                            <p>
                            <?php echo($value['gia']) ?>
                            </p>
-                           <p>
-                           <a href="#" class="btn btn-danger muangay " data-id="<?php echo($value['id']) ?>" >Mua Ngay</a>  
-                           </p>
+                           
                        </div>
+                        <div class="ct">
+                      <ul>
+                    <a href=""><li > <i class="fas fa-shopping-cart"></i></li></a>
+                     <a href=""><li><i class="fas fa-eye"></i></li></a>
+                   <a href=""><li><i class="far fa-heart"></i></li></a>
+                      </ul>
+                     </div>  
                    </div>
                    <div class="logonew">
                     <img src="../img/logonew.PNG" alt="" width="80px" height="50px">
@@ -53,12 +58,17 @@ require('../layout/header.php');
                         <div class="caption text-center">
                            <h3> <?php echo($value['name']) ?></h3>
                            <p>
-                           <?php echo($value['gia']) ?>
+                           <a href="" style="text-decoration: none;"><?php echo($value['gia']) ?></a>
                            </p>
-                           <p>
-                           <a href="#" class="btn btn-danger muangay" data-id="<?php echo($value['id']) ?>">Mua Ngay</a>
-                           </p>
+                           
                        </div>
+                        <div class="ct">
+                      <ul >
+                    <a href=""><li > <i class="fas fa-shopping-cart"></i></li></a>
+                     <a href="product.php?id<?php echo($value['id']);?>"><li><i class="fas fa-eye"></i></li></a>
+                   <a href=""><li><i class="far fa-heart"></i></li></a>
+                      </ul>
+                     </div>  
                    </div>
                </div>
                <?php endforeach?>
