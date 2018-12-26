@@ -109,18 +109,22 @@ transform: rotate(45deg);
     transition: .5s;
 
 }
-.ct ul a:nth-child(1)
+.ct ul li:hover{
+cursor: pointer;
+}
+
+.ct ul li:nth-child(1)
 {
     color:  hsl(15, 100%, 50%);
     font-size: 20px;
 }
-.ct ul a:nth-child(2)
+.ct ul li:nth-child(2)
 {
     color: hsl(0, 0%, 65%);
     font-size: 20px;
 }
 
-.ct ul a:nth-child(3)
+.ct ul li:nth-child(3)
 {
     color:  hsl(0, 0%, 15%);
     font-size: 20px;

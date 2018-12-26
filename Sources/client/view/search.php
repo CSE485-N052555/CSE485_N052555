@@ -42,25 +42,25 @@ else {
        </div>
              <div class="row">
                  <?php  foreach ($kq as $value) :?>
-                <div class="col-xs-6 col-sm-12 col-md-3 styleproduct">
-                <div class="thumbnail hove">
+                 <div class="col-xs-12 col-sm-12 col-md-3 styleproduct">
+                <div class="thumbnail hove ">
                    <a href="product.php?id=<?php echo($value['id']) ?>"><img src="../img/<?php echo($value['img']) ?>" idproduct="<?php echo($value['id']) ?>"></a>
                         <div class="caption text-center">
-                          <h6></h6> <?php echo($value['name']) ?></h6> 
+                           <h3> <?php echo($value['name']) ?></h3>
                            <p>
                            <?php echo($value['gia']) ?>
                            </p>
-                         </div> 
-                         
-                       </div> 
-                       <div class="ct">
-                      <ul style="padding-left: 20px;">
-                    <a href=""><li > <i class="fas fa-shopping-cart"></i></li></a>
-                     <a href="product.php?id=<?php echo($value['id']);?>"><li><i class="fas fa-eye"></i></li></a>
-                   <a href=""><li><i class="far fa-heart"></i></li></a>
+                           
+                       </div>
+                        <div class="ct">
+                      <ul>
+                    <li class="muangay"  data-id="<?php echo($value['id'])?>"> <i class="fas fa-shopping-cart"></i></li>
+                  <li> <a href="product.php?id=<?php echo($value['id']) ?>" style="text-decoration: none;color:hsl(0, 0%, 65%)"><i class="fas fa-eye"></a></i></li>
+                  <li class="tym" color="0"><i class="far fa-heart hert"></i></li>
                       </ul>
                      </div>  
-                 </div>
+                   </div>
+               </div>
                <?php endforeach?>
           </div>
     <nav aria-label="Page navigation" style="float:right">
@@ -102,10 +102,10 @@ else {
                            <label for="input" class="col-sm-2 control-label" ><h4>Size</h4></label>
                            <div class="col-sm-10">
                                <select name="size" id="" class="form-control " required="required">
-                                   <option value="">XL</option>
-                                   <option value="">L</option>
-                                   <option value="">M</option>
-                                   <option value="">S</option>
+                                   <option value="XL">XL</option>
+                                   <option value="L">L</option>
+                                   <option value="M">M</option>
+                                   <option value="S">S</option>
                                </select>
                            </div>
                        </div>  
@@ -118,10 +118,10 @@ else {
                               <label for="input" class="col-sm-2 control-label "><h4>Color</h4></label>
                               <div class="col-sm-10">
                                   <select name="color" id="inputcolorqick" class="form-control" required="required">
-                                      <option value="">Trắng</option>
-                                      <option value="">Xanh</option>
-                                      <option value="">Cam</option>
-                                      <option value="">Ðen</option>
+                                      <option value="Trắng">Trắng</option>
+                                      <option value="Xanh">Xanh</option>
+                                      <option value="Cam">Cam</option>
+                                      <option value="Đen">Ðen</option>
                                   </select>
                               </div>
                           </div>  
@@ -141,7 +141,7 @@ else {
                       </div>
                       
                       <div class="row">
-                             <a href="#" id="link"> <button type="button" class="btn btn-info them">Thêm Vào Giỏ</button></a>
+                             <a href="#" id="<?php echo($value['id']);?>" class="link"> <button type="button" class="btn btn-info them" >Thêm Vào Giỏ</button></a>
                       </div>
                       
                       

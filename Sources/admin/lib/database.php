@@ -32,5 +32,11 @@ function themcthoadon($mahd,$mah,$tenhang,$soluong,$dongia,$thanhtien)
    $stmt= $this->con->prepare($sql5);
    $stmt->execute();
 }
+function xoasanpham($id)
+{
+   $sql5="delete from product where id=$id";
+   $stmt= $this->con->prepare($sql5);
+   $stmt->execute();
+}
 }
 ?>

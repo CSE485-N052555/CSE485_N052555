@@ -21,16 +21,17 @@ $idloaisp=$_POST['idloaisp'];
 if(!empty($idloaisp&$chitiet&$gia&$tensp))
 {
 $filename=$_FILES['img']['name'];
+
 $move="../../client/img/".$filename;
-if(move_uploaded_file($_FILES['img']['tmp_name'],$move))
+if(move_uploaded_file($_FILES['img']['tmp_name'],"$move"))
 {
 $sql="INSERT INTO `product` (`id`, `name`, `gia`, `img`, `chitiet`, `hot`, `new`, `idloaisp`, `create_at`, `update_at`) VALUES (NULL, '$tensp', '$gia', '$filename', '$chitiet', '$hot', '$new', '$idloaisp', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
 $db->exec_sql($sql);
-header('Location: ../view/themsanpham.php');
+header('Location: ../view/sanpham.php');
 }
 else
 {
-    echo("Xuất Hiện Lỗi Khi Upload Ảnh".$_FILES['img']['error']);
+    echo("Xuất Hiện Lỗi Khi Upload Ảnh");
 }
 }
 }

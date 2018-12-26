@@ -20,25 +20,24 @@ $loaisp=$db->exec_sql($sql2);
        </div>
              <div class="row">
                  <?php  foreach ($kq as $value) :?>
-               <div class="col-xs-12 col-sm-12 col-md-3 styleproduct">
-                   <div class="thumbnail hove ">
+                 <div class="col-xs-12 col-sm-12 col-md-3 styleproduct">
+                <div class="thumbnail hove ">
                    <a href="product.php?id=<?php echo($value['id']) ?>"><img src="../img/<?php echo($value['img']) ?>" idproduct="<?php echo($value['id']) ?>"></a>
-                     
                         <div class="caption text-center">
                            <h3> <?php echo($value['name']) ?></h3>
                            <p>
                            <?php echo($value['gia']) ?>
                            </p>
-                           <p>
-                               <a href="#" class="btn btn-danger muangay" data-id="<?php echo($value['id']) ?>">Mua Ngay</a>
-                               
-                           </p>
+                           
                        </div>
+                        <div class="ct">
+                      <ul>
+                    <li class="muangay"  data-id="<?php echo($value['id'])?>"> <i class="fas fa-shopping-cart"></i></li>
+                  <li> <a href="product.php?id=<?php echo($value['id']) ?>" style="text-decoration: none;color:hsl(0, 0%, 65%)"><i class="fas fa-eye"></a></i></li>
+                  <li class="tym" color="0"><i class="far fa-heart hert"></i></li>
+                      </ul>
+                     </div>  
                    </div>
-                   <div class="logonew">
-                       <img src="../img/logonew.PNG" alt="" width="80px" height="50px">
-                   </div>
-             
                </div>
                <?php endforeach?>
           </div>

@@ -101,6 +101,8 @@ var tenk=cha.find('#inputhoten').val();
 var email=cha.find('#inputemail').val();
 var sdt=cha.find('#inputsdt').val();
 var diachi=cha.find('#inputdiachi').val();
+if(validatePhone(sdt.trim())&& validateEmail(email.trim()))
+{
     $.ajax({
         url:'thanhtoan.php',
         data: 
@@ -120,6 +122,9 @@ var diachi=cha.find('#inputdiachi').val();
         },
         type: 'POST'
      });
+   
+}
+
  });
 $('.them').click(function(){
 var id=$('.link').attr('id');
@@ -150,6 +155,85 @@ $.ajax({
     },
     type: 'GET'
  });
+});
+
+$('.xemthemcmt').click(function(){
+  var page=parseInt($(this).attr('data-page')); 
+  var id= $(this).attr('data-id');
+  var max=parseInt($(this).attr('max'));
+  page=page +6; 
+   if(page<=max)
+   {
+    $(this).attr('data-page',page);
+    $(this).attr('href','product.php?page='+page+'&id='+id);  
+   }
+   else
+   {
+     alert("Đã Hết Bình Luận");
+   }
+
+});
+
+
+
+function validatePhone(txtPhone) {
+    var filter = /^[0-9-+]+$/;
+    if (filter.test(txtPhone + "") && txtPhone.length == 10 ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function validateEmail(sEmail) {
+    var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    if (filter.test(sEmail)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+$('#inputemail').keyup(function(){
+if(!validateEmail($(this).val()))
+{
+$('#erroremail').css("color","red");
+ $('#erroremail').html("Email Không Hợp Lệ!!!");
+}
+else{
+    $('#erroremail').html("Email Hợp Lệ!!!");
+    $('#erroremail').css("color","#1aff1a");
+}
+
+});
+$('#inputsdt').keyup(function(){
+    if(!validatePhone($(this).val()))
+    {
+    $('#errorsdt').css("color","red");
+     $('#errorsdt').html("SDT Không Hợp Lệ!!!");
+    }
+    else{
+        $('#errorsdt').html("SDT Hợp Lệ!!!");
+        $('#errorsdt').css("color","#1aff1a");
+    }
+});
+
+$('.tym').click(function(){
+
+var idmau=$(this).attr('color');
+if(idmau=="0")
+{  
+    $(this).children().css("color","red");
+    $(this).attr('color',"1")
+
+}
+else
+{
+    $(this).children().css("color","hsl(0, 0%, 15%)");
+    $(this).attr('color',"0");
+   
+}
+
+
 });
 });
 

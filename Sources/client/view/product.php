@@ -1,10 +1,37 @@
 <?php
 require('../layout/header.php');
-$sql="select * from product where id=".$_GET['id'];
-$phanloai=$db->exec_sql("select idloaisp from product where id=".$_GET['id']);
+$id=$_GET['id'];
+$sql="select * from product where id=".$id;
+$phanloai=$db->exec_sql("select idloaisp from product where id=".$id);
 $kq=$db->exec_sql($sql);
+if(isset($_GET['page']))
+{
+$page=$_GET['page'];
+}
+else
+{
+    $page=0;
+}
 $sql2="select * from product where idloaisp=".$phanloai[0]['idloaisp']." limit 4";
 $lq=$db->exec_sql($sql2);
+$sql3="select *from binhluan where id_sp=".$id." and check_cmt='Y' limit $page,6";
+$bl=$db->exec_sql($sql3);
+$sql4="select *from binhluan where id_sp=".$id." and check_cmt='Y'";
+$countbt=$db->exec_sql($sql4);
+$maxpage=count($countbt)-6;
+if(isset($_SESSION['binhluan']))
+{
+if($_SESSION['binhluan']==="yes")
+{
+    echo('<script>   
+    alert("Bình Luận Của Quý Khách Đã Được Gửi Và Đang Chờ Xét Duyệt!!")
+    ');
+    echo('</script>');
+}
+unset($_SESSION['binhluan']);
+}
+
+
 ?>
  <div class="container">
      
@@ -70,24 +97,24 @@ $lq=$db->exec_sql($sql2);
 
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   
-  <form action="" method="POST" class="form-horizontal" role="form" >
+  <form action="thembinhluan.php" method="POST" class="form-horizontal" role="form" >
           <div class="form-group">
               <legend><i><b>Thêm Bình Luận</b></i></legend>
           </div>
             
           <div class="form-group" style="margin:0px;width:100%;">
-                  
+                  <input type="hidden" value="<?php echo($id);?>" name="id">
                   <div class="row">
                   <label for="input" class="col-sm-2 col-md-1 col-xs-2  control-label">Tên</label>
                   <div class="col-sm-10 col-md-11 col-xs-10" >
-                      <input type="text" name=""  style="width:100%" id="input" class="form-control" value="" required="required" placeholder="Mời Điền Tên...">
+                      <input type="text" name="name"  style="width:100%" id="input" class="form-control" value="" required="required" placeholder="Mời Điền Tên...">
                   </div>
                   </div>
                   
                   <div class="row"style="margin-top:20px">
                   <label for="input" class="col-sm-2 col-md-1 col-xs-2 control-label">Bình Luận</label>
                   <div class="col-sm-10 col-md-11 col-xs-10">
-                    <textarea name="" id="" cols="auto" rows="5" style="width:100%" required="required" placeholder="Comment...."></textarea>
+                    <textarea name="cmt" id="" cols="auto" rows="5" style="width:100%" required="required" placeholder="Comment...."></textarea>
                   </div>
                   
                   </div>
@@ -99,8 +126,7 @@ $lq=$db->exec_sql($sql2);
                       </div>
                   </div>
                   </div>
-                  
-                 
+                       
         </div>
   </form>
   
@@ -116,28 +142,45 @@ $lq=$db->exec_sql($sql2);
       <legend>  <b><i>Bình Luận </i></b></legend>
     </div>
 
-    
-    <div class="row">
+    <?php  foreach ($bl as $val) :?>
+    <div class="row" style=" margin-bottom:15px; border-bottom:1px solid #9494b8;">
         
         <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
             <img src="../img/<?php echo($kq[0]['img']);?>" width=100%>
         </div>
         
         <div class="col-xs-10 col-sm-10 col-md-11 col-lg-11">
-       <span style="font-size:20px; color: #33adff"> <b>Xuân Hùng</b></span> 
-       <span style="font-size:15px; padding-left:10px;">11/11/1111 11:11:11</span>
+       <span style="font-size:20px; color: #33adff"> <b><?php echo($val['name']);?></b></span> 
+       <span style="font-size:15px; padding-left:10px;"><?php echo($val['date']);?></span>
        <div>
-       As of 2017, text messages are used by youth and adults for personal, family, business and social purposes. Governmental and non-governmental organizations use text messaging for communication between colleagues. In the 2010s, the sending of short informal messages has become an accepted part of many cultures, as happened earlier with emailing.[1] This makes texting a quick and easy way to communicate with friends, family and colleagues, including in contexts where a call would be impolite or inappropriate (e.g., calling very late at night or when one knows the other person is busy with family or work activities). Like e-mail and voicemail, and unlike calls (in which the caller hopes to speak directly with the recipient), texting does not require the caller and recipient to both be free at the same moment; this permits communication even between busy individuals. Text messages can also be used to interact with automated systems, for example, to order products or services from e-commerce websites, or to participate in online contests. Advertisers and service providers use direct text marketing to send messages to mobile users about promotions, payment due dates, and other notifications instead of using postal mail, email, or voicemail.
+       <?php echo($val['cmt']);?>
        </div>
         </div>
         
     </div>
-    
+    <?php endforeach?>
+  
+    <div class="row">
+    <a href="" style="float:right;padding-right:25px;" class="xemthemcmt" data-page="<?php echo($page);?>"  data-id="<?php echo($id);?>" max="<?php echo($maxpage);?>">Xem Thêm >></a>
+ </div>
+              
+  
+   
     
 </div>
-
-
 <!-- hiện Cmt -->
+<h3 class="my-4">Sản Phẩm Liên Quan</h3>
+
+<div class="row">
+<?php  foreach ($lq as $value) :?>
+  <div class="col-md-3 col-sm-4 col-xs-6" style="padding-bottom:10px">
+    <a href="?id=<?php echo($value['id']);?>">
+      <img class="img-fluid" src="../img/<?php echo($value['img']);?>" alt="" width="250px" height="150px"  >
+    </a>
+  </div>
+  <?php endforeach?>
+
+</div>
 <?php
 require('../layout/footer.php');
 ?>

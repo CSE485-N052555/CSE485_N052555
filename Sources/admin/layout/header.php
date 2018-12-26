@@ -110,7 +110,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+          <a class="nav-link" href="../view/hoadon.php">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Quản Lí Đơn Hàng</span></a>
         </li>

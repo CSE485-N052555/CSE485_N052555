@@ -46,7 +46,6 @@ else
     );
 }
 
-
 $_SESSION['card']=$card;
 }
 
