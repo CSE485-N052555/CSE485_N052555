@@ -39,7 +39,6 @@ $db=new Database;
           $db->themcthoadon($mahd,$mah,$tenhang,$soluong,$size,$color,$dongia,$thanhtien);
         }
         unset($_SESSION['card']);
-        echo("success");
        }
      }
    }

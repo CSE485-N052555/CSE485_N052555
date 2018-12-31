@@ -30,6 +30,18 @@ if($_SESSION['binhluan']==="yes")
 }
 unset($_SESSION['binhluan']);
 }
+if(isset($_SESSION['reply']))
+{
+if($_SESSION['reply']==="yes")
+{
+    echo('<script>   
+    alert("Trả lời Của Quý Khách Đã Được Gửi Và Đang Chờ Xét Duyệt!!")
+    ');
+    echo('</script>');
+}
+unset($_SESSION['reply']);
+}
+
 
 
 ?>
@@ -143,20 +155,89 @@ unset($_SESSION['binhluan']);
     </div>
 
     <?php  foreach ($bl as $val) :?>
-    <div class="row" style=" margin-bottom:15px; border-bottom:1px solid #9494b8;">
+    <?php
+$rep=$db->exec_sql("select * from traloibinhluan where id_cmt=".$val['id_cmt']." and check_reply='Y'");
+    ?>
+    <div class="row allcmt " style=" margin-bottom:15px; border-bottom:1px solid #9494b8;">
         
         <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
             <img src="../img/<?php echo($kq[0]['img']);?>" width=100%>
         </div>
         
         <div class="col-xs-10 col-sm-10 col-md-11 col-lg-11">
-       <span style="font-size:20px; color: #33adff"> <b><?php echo($val['name']);?></b></span> 
+       <span style="font-size:20px; color: #33adff"><i> <?php echo($val['name']);?></i></span> 
        <span style="font-size:15px; padding-left:10px;"><?php echo($val['date']);?></span>
+       <span style="font-size:15px; color: #ff6600; padding-left:10px;" class="reply"> <b>Reply</b></span>
        <div>
        <?php echo($val['cmt']);?>
        </div>
         </div>
+         
+        <?php  foreach ($rep as $kqrep) :?>
+<div class="row col-md-offset-1 col-xs-offset-1" style=" margin-bottom:15px; border-bottom:1px solid #9494b8;">
+<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1">
+       <img src="../img/<?php echo($kq[0]['img']);?>" width="60%">    
+        </div>
         
+        <div class="col-xs-9 col-sm-9 col-md-10 col-lg-10" style="margin-left:-15px;">
+       <span style="font-size:20px; color: #cc9900"><i> <?php echo($kqrep['ten']);?></i></span> 
+       <span style="font-size:15px; padding-left:10px;"><?php echo($kqrep['create_at']);?></span>
+       <div>
+       <?php echo($kqrep['reply']);?>
+       </div>
+        </div>
+</div>
+<?php endforeach?>
+
+
+
+
+
+
+
+
+
+
+         <div class="row col-md-offset-1 hidden repcmt">
+          <form action="themreply.php" method="POST" class="form-horizontal" role="form" >
+          <div class="form-group">
+          </div>
+            
+          <div class="form-group" style="margin:0px;width:100%;">
+          
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <p class="anreply" style="float:right"><u>Ẩn</u></p>
+          </div>
+          
+                  <input type="hidden" value="<?php echo($val['id_cmt']);?>" name="id_cmt">
+                  <div class="row">
+                  <label for="input" class="col-sm-2 col-md-1 col-xs-2  control-label">Tên</label>
+                  <div class="col-sm-10 col-md-11 col-xs-10" >
+                      <input type="text" name="name"  style="width:100%" id="input" class="form-control" value="" required="required" placeholder="Mời Điền Tên...">
+                  </div>
+                  </div>
+                  
+                  <div class="row"style="margin-top:20px">
+                  <label for="input" class="col-sm-2 col-md-1 col-xs-2 control-label">Bình Luận</label>
+                  <div class="col-sm-10 col-md-11 col-xs-10">
+                    <textarea name="reply" id="" cols="auto" rows="5" style="width:100%" required="required" placeholder="Reply...."></textarea>
+                  </div>
+                  
+                  </div>
+                  
+                  <div class="row">
+                  <div class="form-group">
+                      <div class="col-sm-10 col-sm-offset-2 col-xs-offset-2 col-md-offset-1 " >
+                          <button type="submit"  style="margin-left:8px;margin-top:15px;" class="btn btn-primary">Reply</button>
+        
+                      </div>
+                  </div>
+                  </div>
+                       
+        </div>
+        </form>
+         </div>
+         
     </div>
     <?php endforeach?>
   

@@ -56,7 +56,7 @@ else {
                       <ul>
                     <li class="muangay"  data-id="<?php echo($value['id'])?>"> <i class="fas fa-shopping-cart"></i></li>
                   <li> <a href="product.php?id=<?php echo($value['id']) ?>" style="text-decoration: none;color:hsl(0, 0%, 65%)"><i class="fas fa-eye"></a></i></li>
-                  <li class="tym" color="0"><i class="far fa-heart hert"></i></li>
+                  <li class="tym" color="0" style="color:#667d99"><i class="fas fa-heart hert"></i></li>
                       </ul>
                      </div>  
                    </div>
@@ -101,11 +101,8 @@ else {
                        <div class="form-group">
                            <label for="input" class="col-sm-2 control-label" ><h4>Size</h4></label>
                            <div class="col-sm-10">
-                               <select name="size" id="" class="form-control " required="required">
-                                   <option value="XL">XL</option>
-                                   <option value="L">L</option>
-                                   <option value="M">M</option>
-                                   <option value="S">S</option>
+                               <select name="size" id="inputsizeqick" class="form-control " required="required">
+        
                                </select>
                            </div>
                        </div>  
@@ -118,10 +115,7 @@ else {
                               <label for="input" class="col-sm-2 control-label "><h4>Color</h4></label>
                               <div class="col-sm-10">
                                   <select name="color" id="inputcolorqick" class="form-control" required="required">
-                                      <option value="Trắng">Trắng</option>
-                                      <option value="Xanh">Xanh</option>
-                                      <option value="Cam">Cam</option>
-                                      <option value="Đen">Ðen</option>
+                                     
                                   </select>
                               </div>
                           </div>  

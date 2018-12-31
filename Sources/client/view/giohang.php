@@ -85,7 +85,7 @@ if(isset($_SESSION['card']))
                          <td class="col-md-2" data-th="">
                                <a href="" class="update-card" id="<?php echo($_SESSION['card'][$key]['id']);?>"> <button class="btn btn-info btn-md"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                                 </button> 
-                                 <a href="delete-card.php?id=<?php echo($_SESSION['card'][$key]['id']); ?>" ><button class="btn btn-danger btn-md"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                 <a href="delete-card.php?id=<?php echo($_SESSION['card'][$key]['id']); ?>"  class="xoacard"><button class="btn btn-danger btn-md"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span></a>
                                 </button>
                          </td> 
                         </tr> 

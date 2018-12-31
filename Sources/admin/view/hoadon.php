@@ -2,7 +2,7 @@
 require_once("../layout/header.php");
 require_once("../lib/database.php");
 $db=new Database();
-$sql="SELECT * FROM `hoadon` ORDER by xuli ASC";
+$sql="SELECT * FROM `hoadon` ";
 $hoadon=$db->exec_sql($sql);
 ?>
 <div id="content-wrapper">
@@ -47,7 +47,7 @@ $hoadon=$db->exec_sql($sql);
                 ?>
                <div style="float:left;">
                <a href="../lib/xulihoadon.php?mahd=<?php echo($value["mahd"]);?>" style="padding-left:30px;"><button type="button" class="btn btn-outline-primary "><i class="fas fa-spinner"></i>Chờ Xử Lí</button></a></div>
-               <a href="chitiethoadon.php?mahd=<?php echo($value['mahd']);?>"><button type="button" class="btn btn-outline-info sua"><i class="fas fa-eye"></i>Xem</button></a> 
+               <a href="../lib/xulixoahoadon.php?mahd=<?php echo($value['mahd']);?>"><button type="button" class="btn btn-outline-info xoahoadon"><i class="far fa-trash-alt"></i>Xóa </button></a> 
               <?php
                    }
                    else
@@ -55,7 +55,7 @@ $hoadon=$db->exec_sql($sql);
             ?>
              <div style="float:left;">
                <a href="../lib/xulihoadon.php?mahd=<?php echo($value["mahd"]);?>" style="padding-left:30px;"><button type="button" class="btn btn-outline-danger "><i class="fas fa-check"></i>Đã Xử Lí</button></a></div>
-               <a href="chitiethoadon.php?mahd=<?php echo($value['mahd']);?>" style="padding-left:10px;"><button type="button" class="btn btn-outline-info sua"><i class="fas fa-eye"></i>Xem</button></a> 
+               <a href="../lib/xulixoahoadon.php?mahd=<?php echo($value['mahd']);?>" style="padding-left:10px;"><button type="button" class="btn btn-outline-info xoahoadon"><i class="far fa-trash-alt"></i> Xóa </button></a> 
              <?php
                    }
              ?>

@@ -12,8 +12,7 @@
 }
 
 .style{
-padding-top: 15px;
-
+text-shadow: #5486A8;
 }
 
 .styleproduct{
@@ -35,7 +34,7 @@ margin-left: 20px;
 }
 .styleproduct .thumbnail img{
 width:280px ;
-height: 280px;
+height: 300px;
 }
 .footer{
     background: #2a2d34;
@@ -45,7 +44,10 @@ height: 280px;
     height: 100px;
     margin-bottom: 15px;
 }
-
+.imgcar{
+    width: 280px;
+    height: 300px;
+}
 
 .stylefooter{
     border-top: 2px solid #5486A8;
@@ -76,6 +78,8 @@ transform: rotate(45deg);
 .hove{
     overflow: hidden;
     position: relative;
+    border: none;
+    border-radius:0px;
 }
 .hove img:hover{
   transform: scale(1.05);
@@ -235,5 +239,13 @@ cursor: pointer;
 .img-fluid{
     border: 2px solid salmon;
 }
+.reply:hover{
+    cursor: pointer;
+    color: #ff1aff;
+    
+}
+.anreply:hover{
+    cursor: pointer;
+    color: red;
 
-
+}

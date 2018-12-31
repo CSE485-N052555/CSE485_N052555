@@ -11,19 +11,22 @@ require('../layout/header.php');
         <div class="container">   
        
        <div class="row">
-       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center style">
-        <div class="panel panel-primary"><h4> Sản Phẩm Mới Nhất</h4>
-        </div>
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center ">
+       <h3> <i>Thời Trang Mới Nhất</i></h3>
+       <span style="color:#a3c2c2">____________</span>
+       <span style="font-size:30px;color: #ff6666;"><i class="fas fa-tree"></i></span>
+       <span style="color:#a3c2c2">____________</span>
+       <p style="color:#666666"><i>Sản phảm thời trang nam mới nhất, trong bộ sưu tập thời trang tại HT Shop</i></p>
          </div> 
        </div>
              <div class="row">
                  <?php  foreach ($kq as $value) :?>
-               <div class="col-xs-12 col-sm-12 col-md-3 styleproduct">
+               <div class="col-xs-6 col-sm-6 col-md-3 styleproduct">
                 <div class="thumbnail hove ">
                    <a href="product.php?id=<?php echo($value['id']) ?>"><img src="../img/<?php echo($value['img']) ?>" idproduct="<?php echo($value['id']) ?>"></a>
                         <div class="caption text-center">
-                           <h3> <?php echo($value['name']) ?></h3>
-                           <p>
+                           <h4> <?php echo($value['name']) ?></h4>
+                           <p style="color:salmon">
                            <?php echo($value['gia']) ?>
                            </p>
                            
@@ -32,7 +35,7 @@ require('../layout/header.php');
                       <ul>
                     <li class="muangay"  data-id="<?php echo($value['id'])?>"> <i class="fas fa-shopping-cart"></i></li>
                   <li> <a href="product.php?id=<?php echo($value['id']) ?>" style="text-decoration: none;color:hsl(0, 0%, 65%)"><i class="fas fa-eye"></a></i></li>
-                  <li class="tym" color="0"><i class="far fa-heart hert"></i></li>
+                  <li class="tym" color="0"  style="color:#667d99"><i class="fas fa-heart hert"></i></li>
                       </ul>
                      </div>  
                    </div>
@@ -43,20 +46,160 @@ require('../layout/header.php');
                <?php endforeach?>
           </div>
          
-       <div class="row">
-       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center style">
-        <div class="panel panel-primary"><h4> Sản Phẩm Bán Chạy</h4>
+
+<!-- yêuthicsh -->
+ 
+ <div class="row">
+     
+     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+     <h3> <i>Thời Trang Yêu Thích Nhất</i></h3>
+       <span style="color:#a3c2c2">____________</span>
+       <span style="font-size:30px;color: #ff0000;"><i class="fas fa-heart"></i></span>
+       <span style="color:#a3c2c2">____________</span>
+       <p style="color:#666666"><i>Sản phảm thời trang nam được yêu thích nhất, trong bộ sưu tập thời trang tại HT Shop</i></p>
+     </div>
+     
+ </div>
+ 
+ 
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+<div id="imageCarousel" class="carousel slide" data-interval="3000"
+     data-ride="carousel" data-pause="hover" data-wrap="true">
+
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                   <a href=""> <img src="../img/aodalong.jpg"  class="img-responsive  imgcar "></a>
+                    <div class="carousel-caption">
+                        <h3>Desert</h3>
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                   <a href=""> <img src="../img/aodanau.jpg"  class="img-responsive imgcar "></a>
+                    <div class="carousel-caption">
+                        <h3>Jellyfish</h3>
+                      
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                   <a href=""> <img src="../img/aodacomu.jpg"  class="img-responsive imgcar"></a>
+                    <div class="carousel-caption">
+                        <h3>Penguins</h3>
+    
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                   <a href=""> <img src="../img/dongho1.jpg"  class="img-responsive imgcar"></a>
+                    <div class="carousel-caption">
+                        <h3>Koala</h3>
+                    
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="item">
+            <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <a href=""><img src="../img/anhdemo.jpg"  class="img-responsive imgcar"></a>
+                    <div class="carousel-caption">
+                        <h3>Lighthouse</h3>
+               
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                 <a href="">   <img src="../img/quanjeanr1.jpg"  class="img-responsive imgcar"></a>
+                    <div class="carousel-caption">
+                        <h3>Hydrangeas</h3>
+                     
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                   <a href=""> <img src="../img/dongho1.jpg"  class="img-responsive imgcar"></a>
+                    <div class="carousel-caption">
+                        <h3>Koala</h3>
+           
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                   <a href=""> <img src="../img/aodacomu.jpg"  class="img-responsive imgcar"></a>
+                    <div class="carousel-caption">
+                        <h3>Penguins</h3>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                   <a href=""> <img src="../img/dongho1.jpg"  class="img-responsive imgcar"></a>
+                    <div class="carousel-caption">
+                        <h3>Tulips</h3>
+                 
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                   <a href=""> <img src="../img/dongho2.jpg"  class="img-responsive imgcar"></a>
+                    <div class="carousel-caption">
+                        <h3>Chrysanthemum</h3>
+                    
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <a href=""><img src="../img/dongho3.jpg"    class="img-responsive imgcar"></a>
+                    <div class="carousel-caption">
+                        <h3>Stripes</h3>
+
+                    </div>
+                </div>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                   <a href=""> <img src="../img/dongho1.jpg"  class="img-responsive imgcar"></a>
+                    <div class="carousel-caption">
+                        <h3>Koala</h3>
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a href="#imageCarousel" class="carousel-control right" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+
+</div>
+</div>
+
+
+
+
+<!-- yêuthisch -->
+
+       <div class="row">
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center ">
+       <h3> <i>Thời Trang Hot</i></h3>
+       <span style="color:#a3c2c2">____________</span>
+       <span style="font-size:30px;color: #ff2424;"><i class="fas fa-fire"></i></span>
+       <span style="color:#a3c2c2">____________</span>
+       <p style="color:#666666"><i>Sản phảm thời trang nam bán chạy nhất, trong bộ sưu tập thời trang tại HT Shop</i></p>
          </div> 
        </div>
              <div class="row">
                  <?php  foreach ($hot as $value) :?>
-                 <div class="col-xs-12 col-sm-12 col-md-3 styleproduct">
+                 <div class="col-xs-6 col-sm-6 col-md-3 styleproduct">
                 <div class="thumbnail hove ">
                    <a href="product.php?id=<?php echo($value['id']) ?>"><img src="../img/<?php echo($value['img']) ?>" idproduct="<?php echo($value['id']) ?>"></a>
                         <div class="caption text-center">
-                           <h3> <?php echo($value['name']) ?></h3>
-                           <p>
+                           <h4> <?php echo($value['name']) ?></h4>
+                           <p style="color:salmon">
                            <?php echo($value['gia']) ?>
                            </p>
                            
@@ -65,7 +208,7 @@ require('../layout/header.php');
                       <ul>
                     <li class="muangay"  data-id="<?php echo($value['id'])?>"> <i class="fas fa-shopping-cart"></i></li>
                   <li> <a href="product.php?id=<?php echo($value['id']) ?>" style="text-decoration: none;color:hsl(0, 0%, 65%)"><i class="fas fa-eye"></a></i></li>
-                  <li class="tym" color="0"><i class="far fa-heart hert"></i></li>
+                  <li class="tym" color="0"  style="color:#667d99"><i class="fas fa-heart hert"></i></li>
                       </ul>
                      </div>  
                    </div>
@@ -99,11 +242,7 @@ require('../layout/header.php');
                        <div class="form-group">
                            <label for="input" class="col-sm-2 control-label" ><h4>Size</h4></label>
                            <div class="col-sm-10">
-                               <select name="size" id="" class="form-control " required="required">
-                                   <option value="XL">XL</option>
-                                   <option value="L">L</option>
-                                   <option value="M">M</option>
-                                   <option value="S">S</option>
+                               <select name="size" id="inputsizeqick" class="form-control " required="required">
                                </select>
                            </div>
                        </div>  
@@ -116,10 +255,7 @@ require('../layout/header.php');
                               <label for="input" class="col-sm-2 control-label "><h4>Color</h4></label>
                               <div class="col-sm-10">
                                   <select name="color" id="inputcolorqick" class="form-control" required="required">
-                                      <option value="Trắng">Trắng</option>
-                                      <option value="Xanh">Xanh</option>
-                                      <option value="Cam">Cam</option>
-                                      <option value="Đen">Ðen</option>
+                                      
                                   </select>
                               </div>
                           </div>  
@@ -139,7 +275,7 @@ require('../layout/header.php');
                       </div>
                       
                       <div class="row">
-                             <a href="#" id="<?php echo($value['id']);?>" class="link"> <button type="button" class="btn btn-info them">Thêm Vào Giỏ</button></a>
+                             <a href="" id="<?php echo($value['id']);?>" class="link"> <button type="button" class="btn btn-info them">Thêm Vào Giỏ</button></a>
                       </div>
                       
                       

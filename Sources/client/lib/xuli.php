@@ -12,8 +12,9 @@ foreach ($kq as $value) {
         'chitiet' => $value['chitiet'],
         'gia' => $value['gia'],
         'hot' => $value['hot'],
-        'new' => $value['new']
-
+        'new' => $value['new'],
+         'size'=>$value['size'],
+         'color'=>$value['color']
     );
 }
 die(json_encode($result, JSON_UNESCAPED_UNICODE));

@@ -13,9 +13,12 @@ $loaisp=$db->exec_sql($sql2);
         <div class="container">   
        
        <div class="row">
-       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center style">
-        <div class="panel panel-primary"><h4><?php echo($loaisp[0]['loaisp']) ?> </h4>
-        </div>
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center style">
+       <h3> <i><h4><?php echo($loaisp[0]['loaisp']) ?></i></h3>
+       <span style="color:#a3c2c2">____________</span>
+       <span style="font-size:30px;color: #a3a375;"><i class="fas fa-anchor"></i></span>
+       <span style="color:#a3c2c2">____________</span>
+       
          </div> 
        </div>
              <div class="row">
@@ -34,7 +37,7 @@ $loaisp=$db->exec_sql($sql2);
                       <ul>
                     <li class="muangay"  data-id="<?php echo($value['id'])?>"> <i class="fas fa-shopping-cart"></i></li>
                   <li> <a href="product.php?id=<?php echo($value['id']) ?>" style="text-decoration: none;color:hsl(0, 0%, 65%)"><i class="fas fa-eye"></a></i></li>
-                  <li class="tym" color="0"><i class="far fa-heart hert"></i></li>
+                  <li class="tym" color="0"  style="color:#667d99"><i class="fas fa-heart hert"></i></li>
                       </ul>
                      </div>  
                    </div>
@@ -69,11 +72,8 @@ $loaisp=$db->exec_sql($sql2);
                        <div class="form-group">
                            <label for="input" class="col-sm-2 control-label" ><h4>Size</h4></label>
                            <div class="col-sm-10">
-                               <select name="size" id="" class="form-control " required="required">
-                                   <option value="XL">XL</option>
-                                   <option value="L">L</option>
-                                   <option value="M">M</option>
-                                   <option value="S">S</option>
+                               <select name="size" id="inputsizeqick" class="form-control " required="required">
+                                  
                                </select>
                            </div>
                        </div>  
@@ -86,10 +86,7 @@ $loaisp=$db->exec_sql($sql2);
                               <label for="input" class="col-sm-2 control-label "><h4>Color</h4></label>
                               <div class="col-sm-10">
                                   <select name="color" id="inputcolorqick" class="form-control" required="required">
-                                      <option value="Trắng">Trắng</option>
-                                      <option value="Xanh">Xanh</option>
-                                      <option value="Cam">Cam</option>
-                                      <option value="Đen">Ðen</option>
+                            
                                   </select>
                               </div>
                           </div>  

@@ -1,5 +1,4 @@
 $(document).ready(function(){
-   
    $('.cong').click(function(){
        var gt= $('.soluong').val();
        gt++;
@@ -19,6 +18,10 @@ $(document).ready(function(){
    }
 });
 $('.muangay').click(function(){
+    var size=null;
+    var size=null;
+    $('#inputsizeqick').children("option").remove();
+    $('#inputcolorqick').children("option").remove();
     var dataid=$(this).attr('data-id');
     $.ajax({
         url: '../lib/xuli.php',
@@ -35,6 +38,17 @@ $('.muangay').click(function(){
        $('#chitiet').text(data[0].chitiet);
        $('.imgproduct').attr('src',"../img/"+data[0].img);
        $('.link').attr('id',dataid);
+       size=data[0].size.split(",");
+     
+       color=data[0].color.split(",");
+      for( let i=0;i<size.length;i++)
+      {
+          $('#inputsizeqick').append('<option value="'+size[i]+'">'+size[i]+'</option>');
+      }
+      for(let i=0;i<color.length;i++)
+      {
+        $('#inputcolorqick').append('<option value="'+color[i]+'">'+color[i]+'</option>');
+      }
         },
         type: 'GET'
      });
@@ -64,10 +78,16 @@ $.ajax({
     success: function(data) {
       if(data=="isset")
       {
-          alert('Hàng Đã Tồn Tại Trong Giỏ!');
+      alert("Sản Phẩm Đã Tồn Tại Trong Giỏ");
       }
       else{
-          alert('Thêm Thành Công!');
+       if(confirm("Sản Phẩm Đã Được Thêm Giỏ Bạn Có Muốn Xem Giỏ Hàng??"))
+       {
+        window.location="../view/giohang.php";
+       }
+       else{
+           location.reload();
+       }
       }
     },
     type: 'GET'
@@ -149,8 +169,13 @@ $.ajax({
           alert('Hàng Đã Tồn Tại Trong Giỏ!');
       }
       else{
-          location.reload();
-          alert('Thêm Thành Công!');
+        if(confirm("Sản Phẩm Đã Được Thêm Giỏ Bạn Có Muốn Xem Giỏ Hàng??"))
+        {
+         window.location="../view/giohang.php";
+        }
+        else{
+            location.reload();
+        }
       }
     },
     type: 'GET'
@@ -228,12 +253,26 @@ if(idmau=="0")
 }
 else
 {
-    $(this).children().css("color","hsl(0, 0%, 15%)");
+    $(this).children().css("color","#667d99");
     $(this).attr('color',"0");
    
 }
 
 
 });
+$('.xoacard').click(function(){
+return confirm("Bạn Có Thật Sự Muốn Xóa??");
+});
+
+$('.reply').click(function(){
+$(this).parents('.allcmt').children('.repcmt').removeClass("hidden");
+
+});
+
+$('.anreply').click(function(){
+$(this).parents('.repcmt').addClass("hidden");
+});
+
+
 });
 

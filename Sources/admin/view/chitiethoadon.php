@@ -33,12 +33,13 @@ $khach=$db->exec_sql($sql3);
           <thead class="text-center">
             <tr>
               <th width="10%" >Mã Hàng</th>
-              <th width="30%">Tên Hàng</th>
+              <th width="25%">Tên Hàng</th>
               <th width="10%">Số Lượng</th>
               <th width="10%">Size</th>
               <th width="10%">Màu Sắc</th>
               <th width="15%">Đơn Giá </th>
               <th width="15%">Thành Tiền</th>
+              <th width="5%"> Xóa</th>
               
             </tr>
           </thead>
@@ -63,6 +64,7 @@ $khach=$db->exec_sql($sql3);
             <td><?php echo($value['color']); ?></td>
             <td><?php echo($value['dongia'])." VNĐ"; ?></td>
             <td><?php echo($value['thanhtien'])." VNĐ"; ?></td>
+            <td><a href="../lib/xulisphoadon.php?mahd=<?php echo($mahd);?>&mah=<?php echo($value['mah']);?>"><button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Xóa</button></a></td>
             </tr>
             <?php endforeach?>
           </tbody>

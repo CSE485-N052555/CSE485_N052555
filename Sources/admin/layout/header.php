@@ -1,3 +1,13 @@
+<?php
+session_start();
+if(!isset($_SESSION['login'])||$_SESSION['login']!="true")
+{
+  header("Location:../view/index.php");
+}
+else
+{
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +39,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">GET ADMIN</a>
+      <a class="navbar-brand mr-1" href="../view/home.php">HT Shop</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -37,14 +47,7 @@
 
       <!-- Navbar Search -->
       <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
+        
       </form>
 
       <!-- Navbar -->
@@ -62,26 +65,21 @@
           </div>
         </li>
         <li class="nav-item dropdown no-arrow mx-1">
-          <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-envelope fa-fw"></i>
-            <span class="badge badge-danger">7</span>
+          <a class="nav-link dropdown-toggle" href="../view/binhluan.php" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-bell fa-fw"></i>
+            <span class="badge badge-danger">7+</span>
           </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+         
         </li>
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#">Settings</a>
-            <a class="dropdown-item" href="#">Activity Log</a>
+            <a class="dropdown-item" href="#"><?php echo($_SESSION['idnhanvien']); ?></a>
+            <a class="dropdown-item" href="#">Thông Tin Cá Nhân</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Đăng Xuất</a>
           </div>
         </li>
       </ul>
@@ -114,16 +112,17 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Quản Lí Đơn Hàng</span></a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>Thống Kê</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <a class="dropdown-item" href="login.html">Lãi</a>
-            <a class="dropdown-item" href="register.html">Quản Lí Loại Sản Phẩm</a>
-            <a class="dropdown-item" href="forgot-password.html">Quản Lí Sản Phẩm</a>
-          </div>
+        <li class="nav-item">
+          <a class="nav-link" href="../view/thongke.php">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Thống Kê</span></a>
         </li>
-      
+        <li class="nav-item">
+          <a class="nav-link" href="../view/thongke.php">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Live Chat</span></a>
+        </li>
       </ul>
+      <?php
+    }
+      ?>
