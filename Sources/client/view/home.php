@@ -7,7 +7,7 @@ require('../layout/header.php');
 
 ?>
 <main class="mo">
-
+  <img src="../img/" alt="" srcset="">
         <div class="container">   
        
        <div class="row">

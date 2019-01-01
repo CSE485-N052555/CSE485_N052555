@@ -60,8 +60,8 @@ else
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item" href="#"><?php echo($_SESSION['idnhanvien']); ?></a>
-            <a class="dropdown-item" href="#">Thông Tin Cá Nhân</a>
+          <a class="dropdown-item" href="#">Thông Tin Cá Nhân</a>
+            <a class="dropdown-item" href="#">Đổi Mật Khẩu</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Đăng Xuất</a>
           </div>

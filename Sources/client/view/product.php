@@ -52,6 +52,7 @@ unset($_SESSION['reply']);
      </div>
      
         <div class="row">
+        <?php echo($kq[0]['img']);?>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <img src="../img/<?php echo($kq[0]['img']);?>" alt="" width="100%">
             </div>

@@ -25,13 +25,16 @@ $loaisp=$db->exec_sql($sql2);
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead class="text-center">
-            <tr>
+            <tr >
               <th width="5%"></th>
               <th width="5%">ID</th>
               <th width="15%">Tên </th>
               <th width="20%">Ảnh</th>
+              <th width="5">Số Lượng</th>
               <th width="10%">Giá</th>
-              <th  width="20%">Chi Tiết</th>
+              <th width="8%">Màu</th>
+              <th width="7%">Size</th>
+              <th  width="15%">Chi Tiết</th>
               <th width="5%">Hot</th>
               <th width="5%">New</th>
              
@@ -50,26 +53,29 @@ $loaisp=$db->exec_sql($sql2);
               <td><?php echo($value['id']);?></td>
               <td><?php echo($value['name']);?></td>
               <td><img src="../../client/img/<?php echo($value['img']);?>" width="200px" height="300px"></td>
+              <td><?php echo($value['soluong']);?></td>
+              <td><?php echo($value['color']);?></td>
+              <td><?php echo($value['size']);?></td>
               <td><?php echo($value['gia']);?></td>
               <td><?php echo($value['chitiet']);?></td>
               <td><?php if($value['hot']==1)
               {
-               echo('<button type="button" class="btn btn-outline-danger">Hot</button');
+               echo('<p style="color:#0099ff">Yes</p>');
               }
               
               else{
-                echo('<button type="button" class="btn btn-outline-secondary">No Hot</button>');
+                echo('<p style="color:red">No</p>');
               }
               
               ?></td>
               <td><?php 
               if($value['new']==1)
               {
-                echo('<button type="button" class="btn btn-outline-primary">New</button');
+                echo('<p style="color:#0099ff">Yes</p>');
 
               }
               else{
-                echo('<button type="button" class="btn btn-outline-dark">No New</button>');
+                echo('<p style="color:red">No</p>');
               }
               
               
@@ -117,7 +123,9 @@ $loaisp=$db->exec_sql($sql2);
           <label for="message-text" class="control-label">Chọn Ảnh</label>
           <input type="file" name="img"  required="required" accept="image/png, image/jpeg" >
           <label for="message-text" class="control-label" style="width:100%">Nhập Giá</label>
-          <input type="text" name="gia" id="" required="required" class="form-control"  placeholder="Nhập Giá....">
+          <input type="number" name="gia" id="" required="required" class="form-control"  placeholder="Nhập Giá....">
+          <label for="message-text" class="control-label">Nhập Số Lượng</label>
+       <input type="number" name="soluong" class="form-control" >
           <label for="message-text" class="control-label">Nhập Size</label>
        <input type="text" name="size" class="form-control" >
        <label for="message-text" class="control-label">Nhập Màu</label>
@@ -166,12 +174,17 @@ $loaisp=$db->exec_sql($sql2);
       <div class="modal-body">
         <form action="../lib/xulisuasp.php"  method="POST" enctype="multipart/form-data">
         <div class="form-group">
+        
+        <input type="hidden" name="idsp" id="idsp"  value="">
+        
           <label for="message-text" class="control-label">Tên Loại Sản Phẩm</label>
-          <input type="text" name="tensp" id="inputdanhmuc" class="form-control" value="" required="required" placeholder="Nhập Tên Sản Phẩm...">
+          <input type="text" name="tensp" id="inputdanhmuc" class="form-control" value="" placeholder="Nhập Tên Sản Phẩm...">
           <label for="message-text" class="control-label">Chọn Ảnh</label>
-          <input type="file" name="img"  required="required" accept="image/png, image/jpeg" >
+          <input type="file" name="img"   accept="image/png, image/jpeg" >
           <label for="message-text" class="control-label">Nhập Giá</label>
-          <input type="text" name="gia" id="" required="required" class="form-control"  placeholder="Nhập Giá....">
+          <input type="number" name="gia" id=""  class="form-control"  placeholder="Nhập Giá....">
+          <label for="message-text" class="control-label">Nhập Số Lượng</label>
+       <input type="number" name="soluong" class="form-control" >
           <label for="message-text" class="control-label">Nhập Size</label>
        <input type="text" name="size" class="form-control" >
        <label for="message-text" class="control-label">Nhập Màu</label>
@@ -179,7 +192,8 @@ $loaisp=$db->exec_sql($sql2);
        <label for="message-text" class="control-label">Nhập Chi Tiết</label>
           <textarea name="chitiet" id="" cols="30" rows="5" placeholder="Nhập Chi Tiết.." style="width:100%"></textarea>
               <div class="col-sm-6" style="margin-left:-12px;">
-                  <select name="idloaisp" id="input" class="form-control" required="required">
+                  <select name="idloaisp" id="input" class="form-control" >
+                  <option value="">Mời Chọn Loại Sản Phẩm</option>
                   <?php  foreach ($loaisp as $value) :?>
                   <option value="<?php echo($value['id_loaisp']) ?>"><?php echo($value['loaisp']) ?></option>
                   <?php endforeach?>
