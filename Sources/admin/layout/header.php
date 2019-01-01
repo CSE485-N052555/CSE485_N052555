@@ -1,4 +1,6 @@
 <?php
+include('../lib/database.php');
+$db=new Database;
 session_start();
 if(!isset($_SESSION['login'])||$_SESSION['login']!="true")
 {
@@ -52,25 +54,7 @@ else
 
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
-        <li class="nav-item dropdown no-arrow mx-1">
-          <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-bell fa-fw"></i>
-            <span class="badge badge-danger">9+</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown no-arrow mx-1">
-          <a class="nav-link dropdown-toggle" href="../view/binhluan.php" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-bell fa-fw"></i>
-            <span class="badge badge-danger">7+</span>
-          </a>
-         
-        </li>
+       
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user-circle fa-fw"></i>
@@ -118,9 +102,26 @@ else
             <span>Thống Kê</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../view/thongke.php">
+          <a class="nav-link" href="../view/livechat.php">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Live Chat</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="../view/binhluan.php">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Bình Luận</span>
+            <span style="color: #ff1a8c" >
+            <?php
+           $countcmt=$db->exec_sql("SELECT COUNT(id_cmt) as sl FROM `binhluan` WHERE check_cmt='N'");
+           if($countcmt[0]['sl']>0)
+           {
+            echo ($countcmt[0]['sl']);
+           }
+         ?>
+
+
+            </span>
+          </a>
         </li>
       </ul>
       <?php

@@ -114,19 +114,16 @@ $loaisp=$db->exec_sql($sql2);
           <div class="form-group">
           <label for="message-text" class="control-label">Tên Loại Sản Phẩm</label>
           <input type="text" name="tensp" id="inputdanhmuc" class="form-control" value="" required="required" placeholder="Nhập Tên Sản Phẩm...">
-          <label  class="control-label">Ảnh:</label><input type="file" name="img"  required="required" accept="image/png, image/jpeg" >
-          <input type="text" name="gia" id="" required="required" placeholder="Nhập Giá....">
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="1" name="hot">
-              Hot
-            </label>
-            <label>
-              <input type="checkbox" value="1" name="new">
-            New
-            </label>
-          </div>
-          <textarea name="chitiet" id="" cols="30" rows="5" placeholder="Nhập Chi Tiết.."></textarea>
+          <label for="message-text" class="control-label">Chọn Ảnh</label>
+          <input type="file" name="img"  required="required" accept="image/png, image/jpeg" >
+          <label for="message-text" class="control-label" style="width:100%">Nhập Giá</label>
+          <input type="text" name="gia" id="" required="required" class="form-control"  placeholder="Nhập Giá....">
+          <label for="message-text" class="control-label">Nhập Size</label>
+       <input type="text" name="size" class="form-control" >
+       <label for="message-text" class="control-label">Nhập Màu</label>
+       <input type="text" name="color" class="form-control" >
+       <label for="message-text" class="control-label">Nhập Chi Tiết</label>
+          <textarea name="chitiet" id="" cols="30" rows="5" placeholder="Nhập Chi Tiết.." style="width:100%"></textarea>
               <div class="col-sm-6" style="margin-left:-12px;">
                   <select name="idloaisp" id="input" class="form-control" required="required">
                   <?php  foreach ($loaisp as $value) :?>
@@ -136,6 +133,18 @@ $loaisp=$db->exec_sql($sql2);
               </div>
           </div>
       
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="1" name="hot">
+          Sản Phẩm Có Hot Không?
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="1" name="new">
+          Sản Phẩm Có Mới Không?
+        </label>
+      </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
@@ -156,33 +165,41 @@ $loaisp=$db->exec_sql($sql2);
       </div>
       <div class="modal-body">
         <form action="../lib/xulisuasp.php"  method="POST" enctype="multipart/form-data">
-          <div class="form-group">
+        <div class="form-group">
           <label for="message-text" class="control-label">Tên Loại Sản Phẩm</label>
-          <input type="hidden" name="idsp" value="15" id="idsp">
-          <input type="text" name="tensp" id="inputdanhmuc" class="form-control" value=""  placeholder="Nhập Tên Sản Phẩm...">
-          <label  class="control-label">Ảnh:</label><input type="file" name="img" id="" value=""  accept="image/png, image/jpeg ,image/PNG, image/JPG" >
-          <input type="text" name="gia" id=""  placeholder="Nhập Giá....">
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" value="1" name="hot">
-              Hot
-            </label>
-            <label>
-              <input type="checkbox" value="1" name="new">
-            New
-            </label>
-          </div>
-          <textarea name="chitiet" id="" cols="30" rows="5" placeholder="Nhập Chi Tiết.."></textarea>
+          <input type="text" name="tensp" id="inputdanhmuc" class="form-control" value="" required="required" placeholder="Nhập Tên Sản Phẩm...">
+          <label for="message-text" class="control-label">Chọn Ảnh</label>
+          <input type="file" name="img"  required="required" accept="image/png, image/jpeg" >
+          <label for="message-text" class="control-label">Nhập Giá</label>
+          <input type="text" name="gia" id="" required="required" class="form-control"  placeholder="Nhập Giá....">
+          <label for="message-text" class="control-label">Nhập Size</label>
+       <input type="text" name="size" class="form-control" >
+       <label for="message-text" class="control-label">Nhập Màu</label>
+       <input type="text" name="color" class="form-control" >
+       <label for="message-text" class="control-label">Nhập Chi Tiết</label>
+          <textarea name="chitiet" id="" cols="30" rows="5" placeholder="Nhập Chi Tiết.." style="width:100%"></textarea>
               <div class="col-sm-6" style="margin-left:-12px;">
                   <select name="idloaisp" id="input" class="form-control" required="required">
                   <?php  foreach ($loaisp as $value) :?>
                   <option value="<?php echo($value['id_loaisp']) ?>"><?php echo($value['loaisp']) ?></option>
                   <?php endforeach?>
-
                   </select>
               </div>
           </div>
       
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="1" name="hot">
+          Sản Phẩm Có Hot Không?
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="1" name="new">
+          Sản Phẩm Có Mới Không?
+        </label>
+      </div>
+      <p style="color:red"><i>Chú Ý: Nếu mục nào bạn để trống thì mục đó sẽ không bị thay đổi!!!</i></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>

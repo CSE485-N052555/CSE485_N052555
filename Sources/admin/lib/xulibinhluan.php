@@ -21,23 +21,5 @@ if(isset($_GET['id_delete'])&&$_GET['id_delete']!="")
     header("Location:../view/binhluan.php");
    
 }
-if((isset($_GET['id_reply'])&&$_GET['id_reply']!="")&&(isset($_GET['id_cmt'])&&$_GET['id_cmt']!=""))
-{
-    $id=$_GET['id_cmt'];
-    $db->exec_sql("delete from traloibinhluan where id=".$_GET['id_reply']);
-    header("Location:../view/reply.php?id_cmt=$id");
-}
-if((isset($_GET['id_reply_check'])&&$_GET['id_reply_check']!="")&&(isset($_GET['id_cmt'])&&$_GET['id_cmt']!=""))
-{   $id=$_GET['id_cmt'];
-    $check=$db->exec_sql("select check_reply from traloibinhluan where id=".$_GET['id_reply_check']);
-    if($check[0]['check_reply']=="Y")
-    {
-        $db->exec_sql("update traloibinhluan set check_reply='N' where id=".$_GET['id_reply_check']);
-    }
-    else
-    {
-        $db->exec_sql("update traloibinhluan set check_reply='Y' where id=".$_GET['id_reply_check']);
-    }
-    header("Location:../view/reply.php?id_cmt=$id");
-}
+
 ?>

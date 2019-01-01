@@ -24,12 +24,9 @@ $binhluan=$db->exec_sql($sql);
               <th width="5%">ID_Sản Phẩm </th>
               <th width="10%">Tên Khách</th>
               <th width="30%">Nội Dung</th>
-              <th width="20%">Ngày Tạo</th>
-              <th width="10%">Check</th>
+              <th width="20%">Check</th>
+              <th width="10%">Ngày Tạo</th>
               <th width="20%">Xem/Xóa</th>
-            
-              
-              
             </tr>
           </thead>
           <tfoot>
@@ -61,7 +58,19 @@ $binhluan=$db->exec_sql($sql);
              <td><?php echo($value['date']);?></td>
              <td>
             
-               <a href="../view/reply.php?id_cmt=<?php echo($value['id_cmt']);?>" ><button type="button" class="btn btn-outline-primary "><i class="far fa-eye"></i>Xem</button></a></div>
+          <a href="../view/reply.php?id_cmt=<?php echo($value['id_cmt']);?>" ><button type="button" class="btn btn-outline-primary "><i class="far fa-eye"></i>Xem <span style="color:red">
+         <?php
+         $id=$value['id_cmt'];
+           $countreply=$db->exec_sql("SELECT COUNT(id) as sl FROM `traloibinhluan` WHERE check_reply='N' and id_cmt=$id");
+           if($countreply[0]['sl']>0)
+           {
+            echo ($countreply[0]['sl']);
+           }
+         ?>
+
+
+          </span></button></a>
+           
                <a href="../lib/xulibinhluan.php?id_delete=<?php echo($value['id_cmt']);?>"><button type="button" class="btn btn-outline-danger xoahoadon"><i class="far fa-trash-alt"></i>Xóa </button></a> 
                </td>
             

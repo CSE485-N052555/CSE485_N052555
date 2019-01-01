@@ -12,20 +12,22 @@ if(isset($_POST['new']))
     $new=$_POST['new'];
 }
 
-if(isset($_POST['tensp'],$_POST['gia'],$_POST['chitiet'],$_POST['idloaisp']))
+if(isset($_POST['tensp'],$_POST['gia'],$_POST['chitiet'],$_POST['idloaisp'],$_POST['size'],$_POST['color']))
 {
 $tensp=$_POST['tensp'];
 $gia=$_POST['gia'];
 $chitiet=$_POST['chitiet'];
 $idloaisp=$_POST['idloaisp'];
-if(!empty($idloaisp&$chitiet&$gia&$tensp))
+$size=$_POST['size'];
+$color=$_POST['color'];
+if(!empty($idloaisp&$chitiet&$gia&$tensp&$color&$size))
 {
 $filename=$_FILES['img']['name'];
 
 $move="../../client/img/".$filename;
 if(move_uploaded_file($_FILES['img']['tmp_name'],"$move"))
 {
-$sql="INSERT INTO `product` (`id`, `name`, `gia`, `img`, `chitiet`, `hot`, `new`, `idloaisp`, `create_at`, `update_at`) VALUES (NULL, '$tensp', '$gia', '$filename', '$chitiet', '$hot', '$new', '$idloaisp', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
+$sql="INSERT INTO `product` (`id`, `name`, `gia`, `img`,`size`, `color`, `chitiet`, `hot`, `new`, `idloaisp`, `create_at`, `update_at`) VALUES (NULL, '$tensp', '$gia','$size','$color', '$filename', '$chitiet', '$hot', '$new', '$idloaisp', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)";
 $db->exec_sql($sql);
 header('Location: ../view/sanpham.php');
 }
