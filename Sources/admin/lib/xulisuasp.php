@@ -1,5 +1,6 @@
 <?php
-require_once('database.php');
+require('database.php');
+require('checklogin.php');
 $db=new Database;
 $id=$_POST['idsp'];
 if(isset($_POST['hot']) && !empty($_POST['hot']) )

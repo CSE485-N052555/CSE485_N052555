@@ -39,6 +39,7 @@ height: 300px;
 .footer{
     background: #2a2d34;
     color: white;
+    border-top: 2px solid #3399ff;
 }
 .demo{
     height: 100px;
@@ -244,4 +245,9 @@ cursor: pointer;
     cursor: pointer;
     color: red;
 
+}
+.footerpage
+{
+color: white;
+padding-top: 20px;
 }

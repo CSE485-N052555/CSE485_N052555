@@ -1,15 +1,13 @@
 <?php
 include('../lib/database.php');
 $db=new Database;
-session_start();
-if(!isset($_SESSION['login'])||$_SESSION['login']!="true")
+require('../lib/checklogin.php');
+if(isset($_SESSION['idnhanvien']))
 {
-  header("Location:../view/index.php");
+  $id=$_SESSION['idnhanvien'];
+  $ten=$db->exec_sql("select ten from taikhoan where id='$id'");
 }
-else
-{
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,7 +52,11 @@ else
 
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
-       
+      <li style="color:white;padding-top:13px; font-size:10px;"><p>Xin Chào : <?php 
+if(isset($ten))
+{
+  echo($ten[0]['ten']);
+}?></p></li>
         <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user-circle fa-fw"></i>
@@ -73,15 +75,9 @@ else
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Điều Khiển</span>
-          </a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-folder"></i>
+          <i class="fas fa-tshirt"></i>
             <span>Quản Lí Sản Phẩm</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
@@ -92,22 +88,22 @@ else
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../view/hoadon.php">
-            <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fas fa-money-bill"></i>
             <span>Quản Lí Đơn Hàng</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../view/thongke.php">
-            <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fas fa-sort-numeric-down"></i>
             <span>Thống Kê</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../view/livechat.php">
-            <i class="fas fa-fw fa-chart-area"></i>
+          <i class="fas fa-comments"></i>
             <span>Live Chat</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link" href="../view/binhluan.php">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+          <i class="far fa-comment"></i>
             <span>Bình Luận</span>
             <span style="color: #ff1a8c" >
             <?php
@@ -135,6 +131,3 @@ else
         ?>
       </ul>
       
-      <?php
-    }
-      ?>

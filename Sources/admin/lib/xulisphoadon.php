@@ -1,5 +1,6 @@
 <?php
-include('database.php');
+require('database.php');
+require('checklogin.php');
 $db=new Database;
 $mah=$_GET['mah'];
 $mahd=$_GET['mahd'];

@@ -1,6 +1,6 @@
 <?php
-include('database.php');
-session_start();
+require('database.php');
+require('checklogin.php');
 $db=new Database;
 if(isset($_GET['id']))
 {

@@ -33,7 +33,7 @@ ORDER BY (soluongban) DESC LIMIT 8,4");
                         <div class="caption text-center">
                            <h4> <?php echo($value['name']) ?></h4>
                            <p style="color:salmon">
-                           <?php echo($value['gia']) ?>
+                           <?php echo(number_format($value['gia'])." đ") ?>
                            </p>
                            
                        </div>
@@ -146,7 +146,7 @@ ORDER BY (soluongban) DESC LIMIT 8,4");
                         <div class="caption text-center">
                            <h4> <?php echo($value['name']) ?></h4>
                            <p style="color:salmon">
-                           <?php echo($value['gia']) ?>
+                           <?php echo(number_format($value['gia'])." đ") ?>
                            </p>
                            
                        </div>

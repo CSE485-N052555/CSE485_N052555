@@ -47,8 +47,8 @@
             <a href="product.php?id=<?php echo($value['id']) ?>"><img src="../img/<?php echo($value['img']) ?>" idproduct="<?php echo($value['id']) ?>"></a>
             <div class="caption text-center">
                <h3> <?php echo($value['name']) ?></h3>
-               <p>
-                  <?php echo($value['gia']) ?>
+               <p style="color:red">
+               <?php echo(number_format($value['gia'])." đ") ?>
                </p>
             </div>
             <div class="ct">

@@ -1,6 +1,7 @@
 <?php
-include('database.php');
+require('database.php');
 $db=new Database;
+require('checklogin.php');
 if(isset($_GET['id_set'])&&$_GET['id_set']!="")
 {
     $check=$db->exec_sql("select check_cmt from binhluan where id_cmt=".$_GET['id_set']);

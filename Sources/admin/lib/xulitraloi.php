@@ -1,5 +1,6 @@
 <?php
-include('database.php');
+require('database.php');
+require('checklogin.php');
 $db=new Database;
 if((isset($_GET['id_cmt'])&&$_GET['id_cmt']!="")&&(isset($_GET['noidung'])&&$_GET['noidung']!=null))
 {

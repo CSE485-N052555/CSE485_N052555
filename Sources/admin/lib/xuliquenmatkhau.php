@@ -1,6 +1,6 @@
 <?php
-session_start();
-include('database.php');
+require('checklogin.php');
+require('database.php');
 $db=new Database;
 include("../email/src/PHPMailer.php");
 include("../email/src/Exception.php");

@@ -1,5 +1,6 @@
 <?php
-require_once('database.php');
+require('database.php');
+require('checklogin.php');
 $db=new Database();
 $result = array();
 if(isset($_POST['sohd'])&&isset($_POST['doanhthu'])&&isset($_POST['sohangban'])&&isset($_POST['sanpham']))

@@ -256,8 +256,9 @@ function thongke()
             }
             else
             {
+                var doanhthu=format_curency(data[0].doanhthu);
                 $('#sohd').text(data[0].sohd);
-                $('#doanhthu').text(data[0].doanhthu +"  VNĐ");
+                $('#doanhthu').text(doanhthu +" đ");
                 $('#sohangban').text(data[0].sohangban);
                 $('#sanpham').text(data[0].sanpham);
             }
@@ -267,5 +268,8 @@ function thongke()
      });
 }
 
-
+function format_curency(a) {
+    a= a.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    return a;
+}
 });

@@ -1,6 +1,6 @@
 <?php
-include('database.php');
-session_start();
+require('database.php');
+require('checklogin.php');
 $db=new Database;
 if(isset($_POST['email'],$_POST['mkht'],$_POST['mknew'],$_POST['mkconfrim']))
 {
