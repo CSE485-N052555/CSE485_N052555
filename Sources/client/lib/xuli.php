@@ -14,7 +14,8 @@ foreach ($kq as $value) {
         'hot' => $value['hot'],
         'new' => $value['new'],
          'size'=>$value['size'],
-         'color'=>$value['color']
+         'color'=>$value['color'],
+         'tinhtrang'=>$value['tinhtrang']
     );
 }
 die(json_encode($result, JSON_UNESCAPED_UNICODE));

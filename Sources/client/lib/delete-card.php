@@ -6,7 +6,7 @@ if(!empty($_SESSION['card'])&isset($_SESSION['card']))
     {
         $id=$_GET['id'];
         unset($_SESSION['card'][$id]);
-        header('Location:giohang.php');
+        header('Location:../view/giohang.php');
     }
 }
 

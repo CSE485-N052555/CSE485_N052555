@@ -1,5 +1,5 @@
 <?php
-include('../lib/database.php');
+include('database.php');
 session_start();
 $db=new Database;
 $id=$_POST['id_cmt'];
@@ -8,6 +8,6 @@ $reply=$_POST['reply'];
 $sql="INSERT INTO `traloibinhluan` (`id`, `id_cmt`, `ten`, `reply`, `check_reply`, `create_at`) VALUES (NULL, '$id', '$ten', '$reply', 'N', CURRENT_TIMESTAMP)
 ";
 $db->exec_sql($sql);
- header("Location:product.php?id=$idsp");
+ header("Location:../view/product.php?id=$idsp");
   $_SESSION['reply']="yes";
 ?>

@@ -78,14 +78,14 @@ if(isset($_SESSION['card']))
                            </div> 
                           </div> 
                          </td> 
-                         <td data-th="Price" style="padding-top:30px"><?php echo($_SESSION['card'][$key]['gia']); ?></td> 
+                         <td data-th="Price" style="padding-top:30px"><?php echo(number_format($_SESSION['card'][$key]['gia'])."đ"); ?></td> 
                          <td data-th="Quantity"><input class="form-control text-center qty" value="<?php echo($_SESSION['card'][$key]['sl']); ?>"  min="1"  type="number"style="margin-top:20px">
                          </td> 
-                         <td data-th="Subtotal" class="text-center" style="padding-top:30px"><?php echo($_SESSION['card'][$key]['thanhtien']); ?></td> 
+                         <td data-th="Subtotal" class="text-center" style="padding-top:30px"><?php echo(number_format($_SESSION['card'][$key]['thanhtien'])."đ"); ?></td> 
                          <td class="col-md-2" data-th="">
                                <a href="" class="update-card" id="<?php echo($_SESSION['card'][$key]['id']);?>"> <button class="btn btn-info btn-md"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
                                 </button> 
-                                 <a href="delete-card.php?id=<?php echo($_SESSION['card'][$key]['id']); ?>"  class="xoacard"><button class="btn btn-danger btn-md"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span></a>
+                                 <a href="../lib/delete-card.php?id=<?php echo($_SESSION['card'][$key]['id']); ?>"  class="xoacard"><button class="btn btn-danger btn-md"><span class="glyphicon glyphicon-trash" aria-hidden="true" ></span></a>
                                 </button>
                          </td> 
                         </tr> 
@@ -96,14 +96,14 @@ if(isset($_SESSION['card']))
                     </tbody>
                     <tfoot> 
                             <tr class="visible-xs"> 
-                             <td class="text-center"><strong><?php echo($tongtien." VNĐ")?> </strong>
+                             <td class="text-center"><strong><?php echo(number_format($tongtien)."đ")?> </strong>
                              </td> 
                             </tr> 
                             <tr> 
                              <td><a href="home.php" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp tục mua hàng</a>
                              </td> 
                              <td colspan="2" class="hidden-xs"> </td> 
-                             <td class="hidden-xs text-center"><strong>  <?php echo($tongtien." VNĐ")?>  </strong>
+                             <td class="hidden-xs text-center"><strong>  <?php echo(number_format($tongtien)."đ")?>  </strong>
                              </td> 
                              <td><a href="" class="btn btn-success btn-block thanhtoan">Thanh toán <i class="fa fa-angle-right"></i></a>
                              </td> 

@@ -37,7 +37,7 @@ $kq=$db->exec_sql($sql);
               <td><?php echo ($value['danhmuc']); ?></td>
               <td >
               <button type="button" class="btn btn-outline-info them " data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo"><i class="icon ion-md-copy"></i>Sửa</button>
-              <a href="../lib/xuli.php?xoa=<?php echo ($value['id']); ?>"><button type="button" class="btn btn-outline-danger"><i class="icon ion-md-trash"></i>Xóa</button></a>
+              <a href="../lib/xulidanhmuc.php?xoa=<?php echo ($value['id']); ?>"  class="xacnhanxoa"><button type="button" class="btn btn-outline-danger "><i class="icon ion-md-trash"></i>Xóa</button></a>
               </td>
              
             </tr>

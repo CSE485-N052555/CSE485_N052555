@@ -12,8 +12,10 @@ else
 {
     $page=0;
 }
-$sql2="select * from product where idloaisp=".$phanloai[0]['idloaisp']." limit 4";
-$lq=$db->exec_sql($sql2);
+$sql2="select * from product where idloaisp=".$phanloai[0]['idloaisp']." limit 0,4";
+$sql5="select * from product where idloaisp=".$phanloai[0]['idloaisp']." limit 4,4";
+$lq1=$db->exec_sql($sql2);
+$lq2=$db->exec_sql($sql5);
 $sql3="select *from binhluan where id_sp=".$id." and check_cmt='Y' limit $page,6";
 $bl=$db->exec_sql($sql3);
 $sql4="select *from binhluan where id_sp=".$id." and check_cmt='Y'";
@@ -52,17 +54,17 @@ unset($_SESSION['reply']);
      </div>
      
         <div class="row">
-        <?php echo($kq[0]['img']);?>
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <img src="../img/<?php echo($kq[0]['img']);?>" alt="" width="100%">
             </div>
             
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <h3><?php echo($kq[0]['name']);?></h3>
-                <h4><?php echo($kq[0]['gia']);?> VNĐ</h4>
+                <h4>Tên :&nbsp<?php echo($kq[0]['name']);?></h4>
+                <h4>Giá :&nbsp<?php echo(number_format($kq[0]['gia']));?>đ</h4>
+                <h4>Tình Trạng: <?php echo($kq[0]['tinhtrang']);?></h4>
                 <div>
-                 <p><?php echo($kq[0]['chitiet']);?>
-                         </p>   
+                 <p><h4>Chi Tiết:</h4><?php echo($kq[0]['chitiet']);?>
+                </p>   
             </div>
             
 <div class="row">
@@ -72,10 +74,12 @@ unset($_SESSION['reply']);
      <label  class="col-sm-2 control-label">Size</label>
      <div class="col-sm-10">
          <select name="" id="inputcolor" class="form-control" required="required" >
-             <option value="Xanh">Xanh</option>
-             <option value="Đỏ">Đỏ</option>
-             <option value="Tím">Tím</option>
-             <option value="Vàng">Vàng</option>
+            <?php
+            $armau=explode(",",$kq[0]['color']);
+            ?>
+             <?php  foreach ($armau as $value) :?>
+             <option value="<?php echo($value);?>"><?php echo($value);?></option>
+             <?php endforeach?>
          </select>
      </div>
  </div>
@@ -84,10 +88,12 @@ unset($_SESSION['reply']);
      <label  class="col-sm-2 control-label">Màu Sắc</label>
      <div class="col-sm-10">
          <select name="" id="inputsize" class="form-control" required="required">
-             <option value="S">S</option>
-             <option value="M">M</option>
-             <option value="L">L</option>
-             <option value="XL">XL</option>
+         <?php
+            $arsize=explode(",",$kq[0]['size']);
+            ?>
+             <?php  foreach ($arsize as $value) :?>
+             <option value="<?php echo($value);?>"><?php echo($value);?></option>
+             <?php endforeach?>
          </select>
      </div>
  </div>
@@ -110,7 +116,7 @@ unset($_SESSION['reply']);
 
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
   
-  <form action="thembinhluan.php" method="POST" class="form-horizontal" role="form" >
+  <form action="../lib/thembinhluan.php" method="POST" class="form-horizontal" role="form" >
           <div class="form-group">
               <legend><i><b>Thêm Bình Luận</b></i></legend>
           </div>
@@ -200,7 +206,7 @@ $rep=$db->exec_sql("select * from traloibinhluan where id_cmt=".$val['id_cmt']."
 
 
          <div class="row col-md-offset-1 hidden repcmt">
-          <form action="themreply.php" method="POST" class="form-horizontal" role="form" >
+          <form action="../lib/themreply.php" method="POST" class="form-horizontal" role="form" >
           <div class="form-group">
           </div>
             
@@ -251,17 +257,46 @@ $rep=$db->exec_sql("select * from traloibinhluan where id_cmt=".$val['id_cmt']."
     
 </div>
 <!-- hiện Cmt -->
-<h3 class="my-4">Sản Phẩm Liên Quan</h3>
+<h3 class="my-4 hidden-xs">Sản Phẩm Liên Quan</h3>
 
-<div class="row">
-<?php  foreach ($lq as $value) :?>
-  <div class="col-md-3 col-sm-4 col-xs-6" style="padding-bottom:10px">
-    <a href="?id=<?php echo($value['id']);?>">
-      <img class="img-fluid" src="../img/<?php echo($value['img']);?>" alt="" width="250px" height="150px"  >
+<div class="row hidden-xs" style="margin-bottom:15px;">
+<div id="imageCarousel" class="carousel slide" data-interval="3000"
+     data-ride="carousel" data-pause="hover" data-wrap="true">
+
+    <div class="carousel-inner">
+        <div class="item active">
+            <div class="row">
+            <?php  foreach ($lq1 as $value) :?>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                   <a href="product.php?id=<?php echo($value['id']);?>"> <img src="../img/<?php echo($value['img']);?>"  class="img-responsive  imgcar "></a>
+                    <div class="carousel-caption">
+                        <h3><?php echo($value['name']) ?></h3>
+                    </div>
+            </div>
+            <?php endforeach?>
+            </div>
+        </div>
+        <div class="item">
+            <div class="row">
+            <?php  foreach ($lq2 as $value) :?>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                   <a href="product.php?id=<?php echo($value['id']);?>"> <img src="../img/<?php echo($value['img']);?>"  class="img-responsive  imgcar "></a>
+                    <div class="carousel-caption">
+                        <h3><?php echo($value['name']) ?></h3>
+                    </div>
+            </div>
+            <?php endforeach?>
+            </div>
+        </div>
+    </div>
+
+    <a href="#imageCarousel" class="carousel-control left" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
     </a>
-  </div>
-  <?php endforeach?>
-
+    <a href="#imageCarousel" class="carousel-control right" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
 </div>
 <?php
 require('../layout/footer.php');

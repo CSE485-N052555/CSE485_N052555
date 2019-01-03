@@ -60,8 +60,7 @@ else
             <i class="fas fa-user-circle fa-fw"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-          <a class="dropdown-item" href="#">Thông Tin Cá Nhân</a>
-            <a class="dropdown-item" href="#">Đổi Mật Khẩu</a>
+          <a class="dropdown-item" href="../view/profile.php">Thông Tin Cá Nhân</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Đăng Xuất</a>
           </div>
@@ -119,11 +118,23 @@ else
            }
          ?>
 
-
             </span>
           </a>
         </li>
+        <?php
+       if(isset($_SESSION['quyen'])&&$_SESSION['quyen']=="Admin")
+       {
+        ?>
+        <li class="nav-item">
+          <a class="nav-link" href="../view/quanlinguoidung.php">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Quản Lí Người Dùng</span></a>
+        </li>
+        <?php
+       }
+        ?>
       </ul>
+      
       <?php
     }
       ?>

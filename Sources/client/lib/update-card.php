@@ -12,5 +12,4 @@ if(!empty($_SESSION['card'])&isset($_SESSION['card']))
     }
     
 }
-
 ?>

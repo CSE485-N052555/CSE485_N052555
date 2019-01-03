@@ -35,9 +35,8 @@ $loaisp=$db->exec_sql($sql2);
                        </div>
                         <div class="ct">
                       <ul>
-                    <li class="muangay"  data-id="<?php echo($value['id'])?>"> <i class="fas fa-shopping-cart"></i></li>
-                  <li> <a href="product.php?id=<?php echo($value['id']) ?>" style="text-decoration: none;color:hsl(0, 0%, 65%)"><i class="fas fa-eye"></a></i></li>
-                  <li class="tym" color="0"  style="color:#667d99"><i class="fas fa-heart hert"></i></li>
+                    <li class="muangay text-center"  data-id="<?php echo($value['id'])?>"> <i class="fas fa-shopping-cart"></i></li>
+                  <li class="text-center"> <a href="product.php?id=<?php echo($value['id']) ?>" style="text-decoration: none;color:hsl(0, 0%, 65%)"><i class="fas fa-eye"></a></i></li>
                       </ul>
                      </div>  
                    </div>

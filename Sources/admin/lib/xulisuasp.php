@@ -12,10 +12,10 @@ if(isset($_POST['new'])&& !empty($_POST['new']))
     $new=$_POST['new'];
     $db->exec_sql("UPDATE `product` SET `new` = '$new' WHERE `product`.`id` = $id");
 }
-if(isset($_POST['soluong'])&& !empty($_POST['soluong']))
+if(isset($_POST['tinhtrang'])&& !empty($_POST['tinhtrang']))
 {
-    $soluong=$_POST['soluong'];
-    $db->exec_sql("UPDATE `product` SET `soluong` = '$soluong' WHERE `product`.`id` = $id");
+    $tinhtrang=$_POST['tinhtrang'];
+    $db->exec_sql("UPDATE `product` SET `tinhtrang` = '$tinhtrang' WHERE `product`.`id` = $id");
 }
 if(isset($_POST['tensp'])&& !empty($_POST['tensp']))
 {
@@ -48,7 +48,7 @@ $idloaisp=$_POST['idloaisp'];
 $db->exec_sql("UPDATE `product` SET `idloaisp` = '$idloaisp' WHERE `product`.`id` = $id");
 }
 
-if(isset($_POST['img'])&& !empty($_POST['img']))
+if(isset($_FILES['img'])&&!empty($_FILES['img']))
 {
 
  $img=$db->exec_sql("select img from product where id=$id");

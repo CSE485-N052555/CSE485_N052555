@@ -24,8 +24,6 @@ $hoadon=$db->exec_sql($sql);
               <th width="25%">Ngày Tạo</th>
               <th width="25%">Chi Tiết</th>
               
-              <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
-              </div>
               
             </tr>
           </thead>

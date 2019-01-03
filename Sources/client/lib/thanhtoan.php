@@ -1,5 +1,5 @@
 <?php
-include('../lib/database.php');
+include('database.php');
 session_start();
 $db=new Database;
     $tenk=$_POST['tenk'];
@@ -39,6 +39,7 @@ $db=new Database;
           $db->themcthoadon($mahd,$mah,$tenhang,$soluong,$size,$color,$dongia,$thanhtien);
         }
         unset($_SESSION['card']);
+        echo("oke");
        }
      }
    }

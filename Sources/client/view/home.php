@@ -4,6 +4,12 @@ require('../layout/header.php');
  $sql2="select * from product where hot=1 limit 8";
  $kq=$db->exec_sql($sql);
  $hot=$db->exec_sql($sql2);
+$banchay1=$db->exec_sql("SELECT id,name,img, count(soluong) as soluongban FROM `product` join chitiethoadon ON product.id=chitiethoadon.mah  group BY id, soluong 
+ORDER BY (soluongban) DESC LIMIT 0,4");
+$banchay2=$db->exec_sql("SELECT id,name,img,  count(soluong) as soluongban FROM `product` join chitiethoadon ON product.id=chitiethoadon.mah  group BY id, soluong 
+ORDER BY (soluongban) DESC LIMIT 4,4");
+$banchay3=$db->exec_sql("SELECT id,name,img,  count(soluong) as soluongban FROM `product` join chitiethoadon ON product.id=chitiethoadon.mah  group BY id, soluong 
+ORDER BY (soluongban) DESC LIMIT 8,4");
 
 ?>
 <main class="mo">
@@ -33,9 +39,8 @@ require('../layout/header.php');
                        </div>
                         <div class="ct">
                       <ul>
-                    <li class="muangay"  data-id="<?php echo($value['id'])?>"> <i class="fas fa-shopping-cart"></i></li>
-                  <li> <a href="product.php?id=<?php echo($value['id']) ?>" style="text-decoration: none;color:hsl(0, 0%, 65%)"><i class="fas fa-eye"></a></i></li>
-                  <li class="tym" color="0"  style="color:#667d99"><i class="fas fa-heart hert"></i></li>
+                    <li class="muangay text-center"  data-id="<?php echo($value['id'])?>"> <i class="fas fa-shopping-cart"></i></li>
+                  <li class="text-center"> <a href="product.php?id=<?php echo($value['id']) ?>" style="text-decoration: none;color:hsl(0, 0%, 65%)"><i class="fas fa-eye"></a></i></li>
                       </ul>
                      </div>  
                    </div>
@@ -49,7 +54,7 @@ require('../layout/header.php');
 
 <!-- yêuthicsh -->
  
- <div class="row">
+ <div class="row hidden-xs">
      
      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
      <h3> <i>Thời Trang Yêu Thích Nhất</i></h3>
@@ -62,7 +67,7 @@ require('../layout/header.php');
  </div>
  
  
-<div class="row">
+<div class="row hidden-xs">
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
 <div id="imageCarousel" class="carousel slide" data-interval="3000"
@@ -71,98 +76,39 @@ require('../layout/header.php');
     <div class="carousel-inner">
         <div class="item active">
             <div class="row">
+            <?php  foreach ($banchay1 as $value) :?>
                 <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
-                   <a href=""> <img src="../img/aodalong.jpg"  class="img-responsive  imgcar "></a>
+                   <a href="product.php?id=<?php echo($value['id']);?>"> <img src="../img/<?php echo($value['img']);?>"  class="img-responsive  imgcar "></a>
                     <div class="carousel-caption">
-                        <h3>Desert</h3>
+                        <h3><?php echo($value['name']) ?></h3>
                     </div>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                   <a href=""> <img src="../img/aodanau.jpg"  class="img-responsive imgcar "></a>
-                    <div class="carousel-caption">
-                        <h3>Jellyfish</h3>
-                      
-                    </div>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                   <a href=""> <img src="../img/aodacomu.jpg"  class="img-responsive imgcar"></a>
-                    <div class="carousel-caption">
-                        <h3>Penguins</h3>
-    
-                    </div>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                   <a href=""> <img src="../img/dongho1.jpg"  class="img-responsive imgcar"></a>
-                    <div class="carousel-caption">
-                        <h3>Koala</h3>
-                    
-                    </div>
-                </div>
+            </div>
+            <?php endforeach?>
             </div>
         </div>
         <div class="item">
             <div class="row">
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                    <a href=""><img src="../img/anhdemo.jpg"  class="img-responsive imgcar"></a>
+            <?php  foreach ($banchay2 as $value) :?>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                   <a href="product.php?id=<?php echo($value['id']);?>"> <img src="../img/<?php echo($value['img']);?>"  class="img-responsive  imgcar "></a>
                     <div class="carousel-caption">
-                        <h3>Lighthouse</h3>
-               
+                        <h3><?php echo($value['name']) ?></h3>
                     </div>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                 <a href="">   <img src="../img/quanjeanr1.jpg"  class="img-responsive imgcar"></a>
-                    <div class="carousel-caption">
-                        <h3>Hydrangeas</h3>
-                     
-                    </div>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                   <a href=""> <img src="../img/dongho1.jpg"  class="img-responsive imgcar"></a>
-                    <div class="carousel-caption">
-                        <h3>Koala</h3>
-           
-                    </div>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                   <a href=""> <img src="../img/aodacomu.jpg"  class="img-responsive imgcar"></a>
-                    <div class="carousel-caption">
-                        <h3>Penguins</h3>
-                    
-                    </div>
-                </div>
+            </div>
+            <?php endforeach?>
             </div>
         </div>
 
         <div class="item">
             <div class="row">
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                   <a href=""> <img src="../img/dongho1.jpg"  class="img-responsive imgcar"></a>
+            <?php  foreach ($banchay3 as $value) :?>
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
+                   <a href="product.php?id=<?php echo($value['id']);?>"> <img src="../img/<?php echo($value['img']);?>"  class="img-responsive  imgcar "></a>
                     <div class="carousel-caption">
-                        <h3>Tulips</h3>
-                 
+                        <h3><?php echo($value['name']) ?></h3>
                     </div>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                   <a href=""> <img src="../img/dongho2.jpg"  class="img-responsive imgcar"></a>
-                    <div class="carousel-caption">
-                        <h3>Chrysanthemum</h3>
-                    
-                    </div>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                    <a href=""><img src="../img/dongho3.jpg"    class="img-responsive imgcar"></a>
-                    <div class="carousel-caption">
-                        <h3>Stripes</h3>
-
-                    </div>
-                </div>
-                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                   <a href=""> <img src="../img/dongho1.jpg"  class="img-responsive imgcar"></a>
-                    <div class="carousel-caption">
-                        <h3>Koala</h3>
-            
-                    </div>
-                </div>
+            </div>
+            <?php endforeach?>
             </div>
         </div>
     </div>
@@ -206,9 +152,8 @@ require('../layout/header.php');
                        </div>
                         <div class="ct">
                       <ul>
-                    <li class="muangay"  data-id="<?php echo($value['id'])?>"> <i class="fas fa-shopping-cart"></i></li>
-                  <li> <a href="product.php?id=<?php echo($value['id']) ?>" style="text-decoration: none;color:hsl(0, 0%, 65%)"><i class="fas fa-eye"></a></i></li>
-                  <li class="tym" color="0"  style="color:#667d99"><i class="fas fa-heart hert"></i></li>
+                    <li class="muangay text-center"  data-id="<?php echo($value['id'])?>"> <i class="fas fa-shopping-cart "></i></li>
+                  <li class="text-center"> <a href="product.php?id=<?php echo($value['id']) ?>" style="text-decoration: none;color:hsl(0, 0%, 65%)"><i class="fas fa-eye"></a></i></li>
                       </ul>
                      </div>  
                    </div>
@@ -232,6 +177,7 @@ require('../layout/header.php');
                   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
                       <h3 id="ten"></h3>
                       <h4 id="gia"></h4>
+                      <h4 id="tinhtrang"></h4>
                       <div>
                        <p id="chitiet"> 
                        </p>   

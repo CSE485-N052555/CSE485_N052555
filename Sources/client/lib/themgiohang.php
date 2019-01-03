@@ -2,7 +2,7 @@
 session_start();
 if(isset($_GET['id']))
 {
-include('../lib/database.php');
+include('database.php');
 $db=new Database;
 $size=isset($_GET['size']) ?$_GET['size']:"S";
 $color=isset($_GET['color'])?$_GET['color']:"Đen";

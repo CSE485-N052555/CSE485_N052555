@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
    $('.cong').click(function(){
        var gt= $('.soluong').val();
        gt++;
@@ -33,11 +34,13 @@ $('.muangay').click(function(){
         },
         dataType: 'json',
         success: function(data) {
-       $('#ten').text(data[0].ten);
-       $('#gia').text(data[0].gia);
-       $('#chitiet').text(data[0].chitiet);
+       $('#ten').text("Tên: "+data[0].ten);
+      var gia = format_curency(data[0].gia);
+       $('#gia').text("Giá: "+ gia+ "đ");
+       $('#chitiet').text("Chi Tiết: "+data[0].chitiet);
        $('.imgproduct').attr('src',"../img/"+data[0].img);
        $('.link').attr('id',dataid);
+       $('#tinhtrang').text("Tình Trạng :"+data[0].tinhtrang)
        size=data[0].size.split(",");
      
        color=data[0].color.split(",");
@@ -64,7 +67,7 @@ $('#thoat,.js-hide-modal1').click(function(){
 var sol=$(document).find('#inputsoluong').val();
 var id=$(this).attr('data-id');
 $.ajax({
-    url:'themgiohang.php',
+    url:'../lib/themgiohang.php',
     data: {
        id: id,
        size: size,
@@ -97,7 +100,7 @@ $.ajax({
      var id= $(this).attr('id');
      var qty=$(this).parents('tr').find('.qty').val();
      $.ajax({
-        url:'update-card.php',
+        url:'../lib/update-card.php',
         data: 
         {
            id: id,
@@ -124,7 +127,7 @@ var diachi=cha.find('#inputdiachi').val();
 if(validatePhone(sdt.trim())&& validateEmail(email.trim()))
 {
     $.ajax({
-        url:'thanhtoan.php',
+        url:'../lib/thanhtoan.php',
         data: 
         {
            tenk:tenk,
@@ -138,7 +141,7 @@ if(validatePhone(sdt.trim())&& validateEmail(email.trim()))
         dataType:'text',
         success: function(data)
         {
-       alert('Đơn Hàng Đã được Gửi');
+       alert('Đơn Hàng Đã được Gửi! Sẽ Sớm Có Nhân Viên Liên Hệ Với Bạn!! Cảm Ơn!!');
         },
         type: 'POST'
      });
@@ -152,7 +155,7 @@ var sol=$(document).find("#inputsol").val();
 var size=$(document).find('#inputsizeqick').val();
 var color=$(document).find('#inputcolorqick').val();
 $.ajax({
-    url:'themgiohang.php',
+    url:'../lib/themgiohang.php',
     data: {
        id: id,
        size: size,
@@ -200,6 +203,10 @@ $('.xemthemcmt').click(function(){
 });
 
 
+function format_curency(a) {
+    a= a.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+    return a;
+}
 
 function validatePhone(txtPhone) {
     var filter = /^[0-9-+]+$/;
@@ -242,24 +249,6 @@ $('#inputsdt').keyup(function(){
     }
 });
 
-$('.tym').click(function(){
-
-var idmau=$(this).attr('color');
-if(idmau=="0")
-{  
-    $(this).children().css("color","red");
-    $(this).attr('color',"1")
-
-}
-else
-{
-    $(this).children().css("color","#667d99");
-    $(this).attr('color',"0");
-   
-}
-
-
-});
 $('.xoacard').click(function(){
 return confirm("Bạn Có Thật Sự Muốn Xóa??");
 });

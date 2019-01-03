@@ -9,6 +9,15 @@ $(document).ready(function() {
         $(document).find('#idloaisp').val(id);
     });
 
+$('.xacnhanxoa').click(function(){
+
+    var r= confirm("Bạn Có Chắc Chắn Muốn Xóa Không?");
+    return r;
+
+});
+
+
+
     $('.sua').click(function() {
         var checkbox = document.getElementsByName('check');
                 var result = 0;
@@ -56,6 +65,7 @@ $(document).ready(function() {
    countcb++;
    }
  } 
+ console.log(arrayid);
  if(countcb>0)
  {
     var result=confirm("Bạn Có Chắc Chắn Muốn Xóa Không?");
@@ -80,14 +90,10 @@ $(document).ready(function() {
          {
       
            alert('Bạn Đã Xóa Thành Công!!!');
-           location.reload();
+        //    location.reload();
          },
          type: 'GET'
       });
-    }
-    else
-    {
-        alert(" Bạn Đã Hủy Thao Tác");
     }
  }
  else

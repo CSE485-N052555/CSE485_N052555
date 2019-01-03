@@ -30,7 +30,7 @@ $loaisp=$db->exec_sql($sql2);
               <th width="5%">ID</th>
               <th width="15%">Tên </th>
               <th width="20%">Ảnh</th>
-              <th width="5">Số Lượng</th>
+              <th width="5">Tình Trạng</th>
               <th width="10%">Giá</th>
               <th width="8%">Màu</th>
               <th width="7%">Size</th>
@@ -53,7 +53,7 @@ $loaisp=$db->exec_sql($sql2);
               <td><?php echo($value['id']);?></td>
               <td><?php echo($value['name']);?></td>
               <td><img src="../../client/img/<?php echo($value['img']);?>" width="200px" height="300px"></td>
-              <td><?php echo($value['soluong']);?></td>
+              <td><?php echo($value['tinhtrang']);?></td>
               <td><?php echo($value['color']);?></td>
               <td><?php echo($value['size']);?></td>
               <td><?php echo($value['gia']);?></td>
@@ -124,8 +124,12 @@ $loaisp=$db->exec_sql($sql2);
           <input type="file" name="img"  required="required" accept="image/png, image/jpeg" >
           <label for="message-text" class="control-label" style="width:100%">Nhập Giá</label>
           <input type="number" name="gia" id="" required="required" class="form-control"  placeholder="Nhập Giá....">
-          <label for="message-text" class="control-label">Nhập Số Lượng</label>
-       <input type="number" name="soluong" class="form-control" >
+          <label for="message-text" class="control-label">Tình Trạng</label>
+           <select name="tinhtrang" id="input" class="form-control" required="required">
+             <option value="Còn Hàng">Còn Hàng</option>
+             <option value="Hết Hàng">Hết Hàng</option>
+           </select>
+           
           <label for="message-text" class="control-label">Nhập Size</label>
        <input type="text" name="size" class="form-control" >
        <label for="message-text" class="control-label">Nhập Màu</label>
@@ -181,10 +185,14 @@ $loaisp=$db->exec_sql($sql2);
           <input type="text" name="tensp" id="inputdanhmuc" class="form-control" value="" placeholder="Nhập Tên Sản Phẩm...">
           <label for="message-text" class="control-label">Chọn Ảnh</label>
           <input type="file" name="img"   accept="image/png, image/jpeg" >
-          <label for="message-text" class="control-label">Nhập Giá</label>
+          <label for="message-text" class="control-label" style="width:100%" >Nhập Giá</label>
           <input type="number" name="gia" id=""  class="form-control"  placeholder="Nhập Giá....">
-          <label for="message-text" class="control-label">Nhập Số Lượng</label>
-       <input type="number" name="soluong" class="form-control" >
+          <label for="message-text" class="control-label">Tình Trạng</label>
+           <select name="tinhtrang" id="input" class="form-control" >
+             <option value="">--Chọn Tình Trạng--</option>
+             <option value="Còn Hàng">Còn Hàng</option>
+             <option value="Hết Hàng">Hết Hàng</option>
+           </select>
           <label for="message-text" class="control-label">Nhập Size</label>
        <input type="text" name="size" class="form-control" >
        <label for="message-text" class="control-label">Nhập Màu</label>
