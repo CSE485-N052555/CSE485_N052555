@@ -90,7 +90,7 @@ $('.xacnhanxoa').click(function(){
          {
       
            alert('Bạn Đã Xóa Thành Công!!!');
-        //    location.reload();
+           location.reload();
          },
          type: 'GET'
       });
