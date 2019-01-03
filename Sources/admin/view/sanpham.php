@@ -54,9 +54,9 @@ $loaisp=$db->exec_sql($sql2);
               <td><?php echo($value['name']);?></td>
               <td><img src="../../client/img/<?php echo($value['img']);?>" width="200px" height="300px"></td>
               <td><?php echo($value['tinhtrang']);?></td>
+              <td><?php echo($value['gia']);?></td>
               <td><?php echo($value['color']);?></td>
               <td><?php echo($value['size']);?></td>
-              <td><?php echo($value['gia']);?></td>
               <td><?php echo($value['chitiet']);?></td>
               <td><?php if($value['hot']==1)
               {

@@ -48,7 +48,7 @@ $idloaisp=$_POST['idloaisp'];
 $db->exec_sql("UPDATE `product` SET `idloaisp` = '$idloaisp' WHERE `product`.`id` = $id");
 }
 
-if(isset($_FILES['img'])&&!empty($_FILES['img']))
+if(isset($_FILES['img'])&&$_FILES['img']['size']>0)
 {
 
  $img=$db->exec_sql("select img from product where id=$id");
