@@ -3,7 +3,7 @@ class Database
 {
 public $con;
 function __construct(){
-   $this->con = new PDO('mysql:host=localhost;dbname=quanlibanhang;charset=utf8','root' ,'');
+   $this->con = new PDO('mysql:host=localhost;dbname=quanliweb;charset=utf8','root' ,'');
 }
 function exec_sql($sql)
 {

@@ -31,10 +31,12 @@ ORDER BY (soluongban) DESC LIMIT 8,4");
                 <div class="thumbnail hove ">
                    <a href="product.php?id=<?php echo($value['id']) ?>"><img src="../img/<?php echo($value['img']) ?>" idproduct="<?php echo($value['id']) ?>"></a>
                         <div class="caption text-center">
-                           <h4> <?php echo($value['name']) ?></h4>
+                          <div class="thu">
+                          <h4> <?php echo($value['name']) ?></h4>
                            <p style="color:salmon">
                            <?php echo(number_format($value['gia'])." đ") ?>
                            </p>
+                          </div>
                            
                        </div>
                         <div class="ct">
@@ -144,10 +146,12 @@ ORDER BY (soluongban) DESC LIMIT 8,4");
                 <div class="thumbnail hove ">
                    <a href="product.php?id=<?php echo($value['id']) ?>"><img src="../img/<?php echo($value['img']) ?>" idproduct="<?php echo($value['id']) ?>"></a>
                         <div class="caption text-center">
-                           <h4> <?php echo($value['name']) ?></h4>
+                        <div class="thu">
+                          <h4> <?php echo($value['name']) ?></h4>
                            <p style="color:salmon">
                            <?php echo(number_format($value['gia'])." đ") ?>
                            </p>
+                          </div>
                            
                        </div>
                         <div class="ct">
