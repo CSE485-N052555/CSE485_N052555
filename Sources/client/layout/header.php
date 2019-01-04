@@ -132,8 +132,8 @@ s0.parentNode.insertBefore(s1,s0);
                                    </div>
                                </div>
                            </div>
-                           <a  style="padding-top:350px;"class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-refresh"></span></a>
-                           <a   style="padding-top:350px;"class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-refresh"></span></a>
+                           <a  style="padding-top:350px;"class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                           <a   style="padding-top:350px;"class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
                        </div>
                        
                    </div>
